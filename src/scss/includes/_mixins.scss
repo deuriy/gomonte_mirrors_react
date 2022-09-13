@@ -1,0 +1,27 @@
+@mixin font-face($fontFamily, $fontUrl, $fontWeight: normal, $fontStyle: normal) {
+  @font-face {
+    font-family: $fontFamily;
+    src: url($fontUrl + '.woff2') format('woff2');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+    font-display: swap;
+  }
+}
+
+@mixin placeholder() {
+  &::-webkit-input-placeholder {
+    @content
+  }
+
+  &::-moz-placeholder {
+    @content
+  }
+
+  &:-moz-placeholder {
+    @content
+  }
+
+  &:-ms-input-placeholder {
+    @content
+  }
+}

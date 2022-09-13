@@ -1,0 +1,17 @@
+.Logo {
+  @media #{$xlMinus} {
+    text-align: center;
+  }
+
+  &_link {
+    display: block;
+  }
+
+  &_img {
+    width: 162px;
+
+    @media #{$xlPlus} {
+      width: 173px;
+    }
+  }
+}
