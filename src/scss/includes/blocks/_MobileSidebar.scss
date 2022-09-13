@@ -1,0 +1,18 @@
+.MobileSidebar {
+  width: 265px;
+  padding: 40px 0 0;
+  background: $mobile-sidebar-bg;
+  color: $light;
+
+  &_closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: none;
+    color: $light;
+  }
+}

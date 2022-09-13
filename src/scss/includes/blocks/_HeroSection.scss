@@ -1,0 +1,17 @@
+.HeroSection {
+	padding-left: 3px;
+	
+	&_title {
+		margin-bottom: 12px;
+		font-size: 30px;
+		line-height: 1.34;
+  }
+	
+	&_text {
+		line-height: 1.6;
+		
+		p:last-child {
+			margin-bottom: 0;
+    }
+  }
+}

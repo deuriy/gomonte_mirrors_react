@@ -1,0 +1,12 @@
+.ObjectMediaSwiper {
+  &_wrapper {
+    display: grid;
+    place-content: center;
+    height: 80vw;
+    overflow: hidden;
+
+    @media #{$mdPlus} {
+      height: 200px;
+    }
+  }
+}

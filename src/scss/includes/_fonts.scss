@@ -1,0 +1,9 @@
+@include font-face('Museo Sans Cyrl 500', '../../assets/fonts/MuseoSansCyrl/subset-MuseoSansCyrl-500');
+@include font-face('Textbook New Web', '../../assets/fonts/TextbookNew/subset-TextbookNewWeb-Regular');
+@include font-face('Textbook New Web', '../../assets/fonts/TextbookNew/subset-TextbookNewWeb-Light', 300);
+@include font-face('Textbook New Web', '../../assets/fonts/TextbookNew/subset-TextbookNewWeb-Bold', bold);
+@include font-face('Open Sans', '../../assets/fonts/OpenSans/subset-OpenSans-Regular');
+@include font-face('Open Sans', '../../assets/fonts/OpenSans/subset-OpenSans-LightItalic', 300, italic);
+@include font-face('Open Sans', '../../assets/fonts/OpenSans/subset-OpenSans-Bold', bold);
+@include font-face('Open Sans', '../../assets/fonts/OpenSans/subset-OpenSans-Light', 300);
+@include font-face('Open Sans', '../../assets/fonts/OpenSans/subset-OpenSans-Medium', 500);

@@ -1,0 +1,49 @@
+.ObjectCards {
+  &_title {
+    margin-bottom: 50px;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  &_col {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_bottom {
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  &-objectsPage {
+    .ObjectCards_bottom {
+      margin-top: 40px;
+
+      @media #{$smPlus} {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &-similar {
+    padding: 60px 5px 70px;
+    background: $similar-objects-bg;
+
+    .ObjectCards_title {
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.3;
+      color: $info-dark;
+
+      @media #{$mdPlus} {
+        margin-left: 0;
+        text-align: left;
+      }
+    }
+  }
+}
