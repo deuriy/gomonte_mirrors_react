@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import { ObjectCard } from '../components/ObjectCard';
+import { PropertyCard } from './PropertyCard';
 
 const FeaturedProperties = (props) => {
   let [properties, setProperties] = useState([]);
@@ -29,23 +29,23 @@ const FeaturedProperties = (props) => {
   }, []);
 
   return (
-    <div className="ObjectCards Frontpage_objectCards">
+    <div className="PropertyCards Frontpage_propertyCards">
       {props.title
         ? <div className="row">
           <div className="col-12">
-            <h2 className="ObjectCards_title">{props.title}</h2>
+            <h2 className="PropertyCards_title">{props.title}</h2>
           </div>
         </div>
         : ''
       }
 
       {properties.length
-        ? <div className="ObjectCards_items">
+        ? <div className="PropertyCards_items">
           <div className="row">
             {
               properties.map(property => (
-                <div className='col-12 col-md-6 col-xl-3 ObjectCards_col' key={property.code}>
-                  <ObjectCard data={property} />
+                <div className='col-12 col-md-6 col-xl-3 PropertyCards_col' key={property.code}>
+                  <PropertyCard data={property} />
                 </div>
               ))
             }
@@ -55,8 +55,8 @@ const FeaturedProperties = (props) => {
       }
 
       {props.showButton
-        ? <div className="ObjectCards_bottom">
-          <Link className="BtnSuccess ObjectCards_btn" to="/rent">Показать все</Link>
+        ? <div className="PropertyCards_bottom">
+          <Link className="BtnSuccess PropertyCards_btn" to="/rent">Показать все</Link>
         </div>
         : ''
       }

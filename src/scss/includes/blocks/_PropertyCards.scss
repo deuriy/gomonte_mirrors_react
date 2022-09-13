@@ -1,4 +1,4 @@
-.ObjectCards {
+.PropertyCards {
   &_title {
     margin-bottom: 50px;
     margin-left: 15px;
@@ -20,8 +20,8 @@
     text-align: center;
   }
 
-  &-objectsPage {
-    .ObjectCards_bottom {
+  &-propertyPage {
+    .PropertyCards_bottom {
       margin-top: 40px;
 
       @media #{$smPlus} {
@@ -34,7 +34,7 @@
     padding: 60px 5px 70px;
     background: $similar-objects-bg;
 
-    .ObjectCards_title {
+    .PropertyCards_title {
       margin-bottom: 15px;
       font-weight: 600;
       font-size: 20px;

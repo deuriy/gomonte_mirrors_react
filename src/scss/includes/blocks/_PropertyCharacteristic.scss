@@ -1,0 +1,29 @@
+.PropertyCharacteristic {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 1.867;
+
+  i {
+    margin-right: 10px;
+    color: $filter-link;
+  }
+
+  &_title {
+    margin-right: 3px;
+    font-size: 14px;
+    color: $property-characteristic-color;
+  }
+
+  &_value {
+    &-city {
+      text-decoration: none;
+      color: $primary;
+    }
+
+    &-price {
+      font-size: 18px;
+      line-height: 1.34;
+    }
+  }
+}
