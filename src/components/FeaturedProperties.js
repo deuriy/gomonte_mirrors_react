@@ -28,37 +28,38 @@ const FeaturedProperties = (props) => {
       .then(data => setProperties(data.result.records));
   }, []);
 
-  let title = '';
-  if (props.title) {
-    title = <div className="row">
-      <div className="col-12">
-        <h2 className="ObjectCards_title">{props.title}</h2>
-      </div>
-    </div>;
-  }
-
-  let button = '';
-  if (props.showButton) {
-    button = <div className="ObjectCards_bottom">
-      <Link className="BtnSuccess ObjectCards_btn" to="/rent">Показать все</Link>
-    </div>;
-  }
-
   return (
     <div className="ObjectCards Frontpage_objectCards">
-      {title}
-      <div className="ObjectCards_items">
-        <div className="row">
-          {
-            properties.map(property => (
-              <div className='col-12 col-md-6 col-xl-3 ObjectCards_col' key={property.code}>
-                <ObjectCard data={property} />
-              </div>
-            ))
-          }
+      {props.title
+        ? <div className="row">
+          <div className="col-12">
+            <h2 className="ObjectCards_title">{props.title}</h2>
+          </div>
         </div>
-      </div>
-      {button}
+        : ''
+      }
+
+      {properties.length
+        ? <div className="ObjectCards_items">
+          <div className="row">
+            {
+              properties.map(property => (
+                <div className='col-12 col-md-6 col-xl-3 ObjectCards_col' key={property.code}>
+                  <ObjectCard data={property} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        : ''
+      }
+
+      {props.showButton
+        ? <div className="ObjectCards_bottom">
+          <Link className="BtnSuccess ObjectCards_btn" to="/rent">Показать все</Link>
+        </div>
+        : ''
+      }
     </div>
   );
 }

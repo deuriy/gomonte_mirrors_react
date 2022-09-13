@@ -26,9 +26,9 @@ function getBedroomsLabel(bedrooms_num) {
 }
 
 const ObjectCard = ({ data }) => {
-  // console.log(data);
-  let price = data[`price_${data.department}`];
-  let pricePerSquare = (price / data.footage_indoor).toLocaleString();
+  let price = data[`price_${data.department}`] !== null ? data[`price_${data.department}`] : '';
+  let pricePerSquare = price / data.footage_indoor;
+  let idPrefix = data.department === 'sale' ? 'S' : '';
 
   return (
     <div className="ObjectCard">
@@ -47,12 +47,19 @@ const ObjectCard = ({ data }) => {
         </Swiper>
       </div>
       <div className="ObjectCard_textWrapper">
-        <h3 className="ObjectCard_title">
-          <Link to="/object/">{data.title}</Link>
-        </h3>
-        <div className="ObjectCard_description">
-          <p>{truncate(data.desc, 150)}</p>
-        </div>
+        {data.title
+          ? <h3 className="ObjectCard_title">
+            <Link to="/object/">{data.title}</Link>
+          </h3>
+          : ''
+        }
+
+        {data.desc
+          ? <div className="ObjectCard_description">
+            <p>{truncate(data.desc, 150)}</p>
+          </div>
+          : ''
+        }
         <Link className="ObjectCard_moreLink" to={`/object/${data.code}`}>показать</Link>
       </div>
       <div className="ObjectCardCharacteristics ObjectCard_characteristics">
@@ -64,16 +71,23 @@ const ObjectCard = ({ data }) => {
         </div>
       </div>
       <div className="ObjectPrices ObjectCard_prices">
-        <div className="ObjectPrice ObjectPrices_item">
-          <div className="ObjectPrice_label">Цена</div>
-          <div className="ObjectPrice_value">€{price.toLocaleString()}</div>
-        </div>
-        <div className="ObjectPrice ObjectPrices_item">
-          <div className="ObjectPrice_label">За квадрат</div>
-          <div className="ObjectPrice_value">€{pricePerSquare}</div>
-        </div>
+        {price
+          ? <div className="ObjectPrice ObjectPrices_item">
+            <div className="ObjectPrice_label">Цена</div>
+            <div className="ObjectPrice_value">€{price.toLocaleString()}</div>
+          </div>
+          : ''
+        }
+
+        {pricePerSquare
+          ? <div className="ObjectPrice ObjectPrices_item">
+            <div className="ObjectPrice_label">За квадрат</div>
+            <div className="ObjectPrice_value">€{pricePerSquare.toLocaleString()}</div>
+          </div>
+          : ''
+        }
       </div>
-      <div className="ObjectCard_id">ID S{data.code}</div>
+      <div className="ObjectCard_id">ID {idPrefix + data.code}</div>
     </div>
   );
 }
