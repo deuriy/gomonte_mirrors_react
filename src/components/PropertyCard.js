@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation, Lazy } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -56,7 +57,15 @@ const PropertyCard = ({ data }) => {
 
         {data.desc
           ? <div className="PropertyCard_description">
-            <p>{truncate(data.desc, 150)}</p>
+            <p>{truncate(data.desc, 200).split("\n").map((item, idx) => {
+              return (
+                <React.Fragment key={idx}>
+                  {item}
+                  <br />
+                </React.Fragment>
+              )
+            })}
+            </p>
           </div>
           : ''
         }
