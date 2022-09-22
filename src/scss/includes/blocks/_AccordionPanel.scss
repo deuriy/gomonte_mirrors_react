@@ -1,0 +1,38 @@
+.AccordionPanel {
+  border: none;
+  border-bottom: 1px solid $accordion-panel-border;
+  background: transparent;
+
+  &_header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 15px;
+    align-items: center;
+    padding: 7px 0 10px;
+    cursor: pointer;
+    transition: all .2s linear;
+
+    .accordion-button {
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: 18px;
+      color: $primary;
+
+      &::after {
+        width: 16px;
+        height: 16px;
+        background-size: 16px;
+      }
+
+      &:hover,
+      &:focus {
+        color: $accordion-panel-hover;
+      }
+    }
+  }
+
+  &_body {
+    padding: 0;
+  }
+}

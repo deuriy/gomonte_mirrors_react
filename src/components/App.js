@@ -4,7 +4,7 @@ import { HomePage } from '../pages/HomePage';
 import { RentPage } from '../pages/RentPage';
 import { SalePage } from '../pages/SalePage';
 import { AboutPage } from '../pages/AboutPage';
-import { ObjectPage } from '../pages/ObjectPage';
+import { PropertyPage } from '../pages/PropertyPage';
 
 import { Layout } from './Layout';
 
@@ -19,7 +19,7 @@ function App() {
         <Route path='rent' element={<RentPage />} />
         <Route path='sale' element={<SalePage />} />
         <Route path='about' element={<AboutPage />} />
-        <Route path='object/:id' element={<ObjectPage />} />
+        <Route path='properties/:id' element={<PropertyPage />} />
       </Route>
     </Routes>
   );

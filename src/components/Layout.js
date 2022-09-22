@@ -16,9 +16,7 @@ const Layout = () => {
         <Header logo={logo} />
         <MobileHeader />
         <MobileFilter />
-        <main className="Main">
-          <Outlet />
-        </main>
+        <Outlet />
         <Footer />
       </div>
     </>

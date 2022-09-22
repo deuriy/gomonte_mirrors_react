@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import { PropertyCard } from './PropertyCard';
+import { PropertyCard } from '../components/PropertyCard'
 
-const FeaturedProperties = (props) => {
+const SimilarProperties = (props) => {
   let [properties, setProperties] = useState([]);
 
   useEffect(() => {
@@ -15,22 +14,21 @@ const FeaturedProperties = (props) => {
       body: JSON.stringify({
         "jsonrpc": "2.0",
         "id": "fj45hsg",
-        "method": "get_featured_properties",
+        "method": "get_similar_properties",
         "params": {
           "lang": "en",
-          "department": "sale",
-          "estate_type": "flats",
-          "count": 4
+          "id": props.id,
+          "department": props.department
         }
       })
     })
       .then(res => res.json())
       .then(data => setProperties(data.result.records));
-  }, []);
+  }, [props.id, props.department]);
 
   return (
-    <div className="PropertyCards">
-      <div className='container'>
+    <div className="PropertyCards PropertyCards-similar PropertyPage_PropertyCards">
+      <div className="container">
         {props.title
           ? <div className="row">
             <div className="col-12">
@@ -45,7 +43,7 @@ const FeaturedProperties = (props) => {
             <div className="row">
               {
                 properties.map(property => (
-                  <div className='col-12 col-md-6 col-xl-3 PropertyCards_col' key={property.code}>
+                  <div className="col-12 col-md-6 col-xl-3 PropertyCards_col" key={property.code}>
                     <PropertyCard data={property} />
                   </div>
                 ))
@@ -55,15 +53,9 @@ const FeaturedProperties = (props) => {
           : ''
         }
 
-        {props.showButton
-          ? <div className="PropertyCards_bottom">
-            <Link className="BtnSuccess PropertyCards_btn" to="/rent">Показать все</Link>
-          </div>
-          : ''
-        }
       </div>
     </div>
   );
 }
 
-export { FeaturedProperties };
+export { SimilarProperties };

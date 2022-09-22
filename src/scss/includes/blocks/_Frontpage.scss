@@ -1,24 +1,19 @@
 .Frontpage {
 	padding-top: 20px;
-	
+
 	@media #{$xlPlus} {
 		padding-top: 26px;
-  }
-	
+	}
+
 	&_heroSection {
 		margin-bottom: 30px;
-  }
-	
+	}
+
 	&_services {
 		margin-bottom: 89px;
-  }
-	
+	}
+
 	&_buttons {
 		margin: 0 24px 24px 17px;
-  }
-	
-	&_objectCards {
-		margin-right: 16px;
-		margin-left: 15px;
-  }
+	}
 }

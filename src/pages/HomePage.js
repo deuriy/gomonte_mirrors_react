@@ -8,7 +8,7 @@ import rentImage from '../assets/img/header-rent-icon-1.webp';
 
 const HomePage = () => {
   return (
-    <>
+    <main className="Main">
       <Banner image={bannerBg} />
       <div className="Frontpage">
         <div className="container">
@@ -25,15 +25,6 @@ const HomePage = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-4">
-                        <div className="ServicesMenu Service_menu">
-                          <ul className="ServicesMenu_list">
-                            <li className="ServicesMenu_item"><a className="ServicesMenu_link" href="#">Посуточная аренда</a></li>
-                            <li className="ServicesMenu_item"><a className="ServicesMenu_link" href="#">На круглый год</a></li>
-                            <li className="ServicesMenu_item"><a className="ServicesMenu_link" href="#">Всё лето</a></li>
-                          </ul>
-                        </div>
-                      </div>
                       <div className="col-8">
                         <div className="row">
                           <div className="col-4">
@@ -81,10 +72,10 @@ const HomePage = () => {
             <Link className="BtnSuccessLight BtnSuccessLight-uppercase" to="/rent">Арендовать</Link>
             <Link className="BtnSecondary BtnSecondary-uppercase" to="/sale">Купить</Link>
           </div>
-          <FeaturedProperties title="Лучшие предложения" showButton />
         </div>
+        <FeaturedProperties title="Лучшие предложения" showButton />
       </div>
-    </>
+    </main>
   );
 }
 
