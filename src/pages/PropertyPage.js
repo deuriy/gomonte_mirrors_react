@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
+import Accordion from 'react-bootstrap/Accordion';
+
 import { faCheck, faFlag, faTag, faClone, faBed, faBath, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -49,10 +51,10 @@ const PropertyPage = () => {
             <Link className="BtnOutline" to={`/${department}`}>Больше материалов</Link>
           </div>
           <h1 className="PropertyPage_title">{property.title}</h1>
-          <div className="Accordion PropertyPage_accordion">
-            <div className="AccordionPanel Accordion_item">
-              <h3 className="AccordionPanel_header">Расположение и стоимость</h3>
-              <div className="AccordionPanel_body">
+          <Accordion defaultActiveKey={["0", "1", "2"]} alwaysOpen className='Accordion PropertyPage_accordion' flush>
+            <Accordion.Item eventKey='0' className='AccordionPanel Accordion_item'>
+              <Accordion.Header className='AccordionPanel_header'>Расположение и стоимость</Accordion.Header>
+              <Accordion.Body className='AccordionPanel_body'>
                 <div className="PropertyCharacteristics">
                   <ul className="PropertyCharacteristics_list">
                     {property.code
@@ -92,11 +94,11 @@ const PropertyPage = () => {
                     }
 
                     {property.bedrooms_num
-                      ? <li className="PropertyCharacteristic PropertyCharacteristics_item">
+                      ? (<li className="PropertyCharacteristic PropertyCharacteristics_item">
                         <FontAwesomeIcon icon={faBed} />
                         <span className="PropertyCharacteristic_title">Спальни:</span>
                         <span className="PropertyCharacteristic_value">{property.bedrooms_num}</span>
-                      </li>
+                      </li>)
                       : ''
                     }
 
@@ -111,11 +113,11 @@ const PropertyPage = () => {
 
                   </ul>
                 </div>
-              </div>
-            </div>
-            <div className="AccordionPanel Accordion_item">
-              <h3 className="AccordionPanel_header">Характеристики</h3>
-              <div className="AccordionPanel_body">
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey='1' className='AccordionPanel Accordion_item'>
+              <Accordion.Header className='AccordionPanel_header'>Характеристики</Accordion.Header>
+              <Accordion.Body className='AccordionPanel_body'>
                 {property.facilities
                   ? <div className="PropertyCharacteristics">
                     <ul className="PropertyCharacteristics_list">
@@ -132,12 +134,12 @@ const PropertyPage = () => {
                   : ''
                 }
 
-              </div>
-            </div>
+              </Accordion.Body>
+            </Accordion.Item>
             {property.desc
-              ? <div className="AccordionPanel Accordion_item">
-                <h3 className="AccordionPanel_header">Описание недвижимости</h3>
-                <div className="AccordionPanel_body">
+              ? <Accordion.Item eventKey='2' className='AccordionPanel Accordion_item'>
+                <Accordion.Header className='AccordionPanel_header'>Описание недвижимости</Accordion.Header>
+                <Accordion.Body className='AccordionPanel_body'>
                   <div className="PropertyPage_description">
                     {
                       property.desc.split("\n").map((item, idx) => (
@@ -148,14 +150,14 @@ const PropertyPage = () => {
                       ))
                     }
                   </div>
-                </div>
-              </div>
+                </Accordion.Body>
+              </Accordion.Item>
               : ''
             }
 
-          </div>
+          </Accordion>
         </div>
-        <SimilarProperties id={id} title="Похожие Объекты" />
+        <SimilarProperties id={id} department={department} title="Похожие Объекты" />
       </div>
     </main>
   );

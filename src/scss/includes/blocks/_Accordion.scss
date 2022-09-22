@@ -1,0 +1,9 @@
+.Accordion {
+  &_item {
+    margin-bottom: 13px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

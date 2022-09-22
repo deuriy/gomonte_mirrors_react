@@ -18,13 +18,13 @@ const SimilarProperties = (props) => {
         "params": {
           "lang": "en",
           "id": props.id,
-          "department": "sale"
+          "department": props.department
         }
       })
     })
       .then(res => res.json())
       .then(data => setProperties(data.result.records));
-  }, []);
+  }, [props.id, props.department]);
 
   return (
     <div className="PropertyCards PropertyCards-similar PropertyPage_PropertyCards">
