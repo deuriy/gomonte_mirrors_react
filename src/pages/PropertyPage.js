@@ -7,6 +7,7 @@ import { faCheck, faFlag, faTag, faClone, faBed, faBath, faAngleRight } from "@f
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { SimilarProperties } from '../components/SimilarProperties';
+import { t } from 'i18next';
 
 const PropertyPage = () => {
   let [property, setProperty] = useState({});
@@ -48,12 +49,12 @@ const PropertyPage = () => {
         }
         <div className="container">
           <div className="PropertyPage_btnWrapper">
-            <Link className="BtnOutline" to={`/${department}`}>Больше материалов</Link>
+            <Link className="BtnOutline" to={`/${department}`}>{t('property_page.more_materials')}</Link>
           </div>
           <h1 className="PropertyPage_title">{property.title}</h1>
           <Accordion defaultActiveKey={["0", "1", "2"]} alwaysOpen className='Accordion PropertyPage_accordion' flush>
             <Accordion.Item eventKey='0' className='AccordionPanel Accordion_item'>
-              <Accordion.Header className='AccordionPanel_header'>Расположение и стоимость</Accordion.Header>
+              <Accordion.Header className='AccordionPanel_header'>{t('property_page.location_and_cost')}</Accordion.Header>
               <Accordion.Body className='AccordionPanel_body'>
                 <div className="PropertyCharacteristics">
                   <ul className="PropertyCharacteristics_list">
@@ -69,7 +70,7 @@ const PropertyPage = () => {
                     {property.location && property.location.name
                       ? <li className="PropertyCharacteristic PropertyCharacteristics_item">
                         <FontAwesomeIcon icon={faFlag} />
-                        <span className="PropertyCharacteristic_title">Город:</span>
+                        <span className="PropertyCharacteristic_title">{t('property_page.city')}:</span>
                         <span className="PropertyCharacteristic_value PropertyCharacteristic_value-city">{property.location.name}</span>
                       </li>
                       : ''
@@ -78,7 +79,7 @@ const PropertyPage = () => {
                     {property[`price_${department}`]
                       ? <li className="PropertyCharacteristic PropertyCharacteristics_item">
                         <FontAwesomeIcon icon={faTag} />
-                        <span className="PropertyCharacteristic_title">на год:</span>
+                        <span className="PropertyCharacteristic_title">{t('property_page.price_per_year')}:</span>
                         <span className="PropertyCharacteristic_value PropertyCharacteristic_value-price">€ {property[`price_${department}`].toLocaleString()}</span>
                       </li>
                       : ''
@@ -87,7 +88,7 @@ const PropertyPage = () => {
                     {property.bedrooms_num
                       ? <li className="PropertyCharacteristic PropertyCharacteristics_item">
                         <FontAwesomeIcon icon={faClone} />
-                        <span className="PropertyCharacteristic_title">К-во комнат:</span>
+                        <span className="PropertyCharacteristic_title">{t('property_page.bedrooms_number')}:</span>
                         <span className="PropertyCharacteristic_value">{property.bedrooms_num}</span>
                       </li>
                       : ''
@@ -96,7 +97,7 @@ const PropertyPage = () => {
                     {property.bedrooms_num
                       ? (<li className="PropertyCharacteristic PropertyCharacteristics_item">
                         <FontAwesomeIcon icon={faBed} />
-                        <span className="PropertyCharacteristic_title">Спальни:</span>
+                        <span className="PropertyCharacteristic_title">{t('property_page.bedrooms')}:</span>
                         <span className="PropertyCharacteristic_value">{property.bedrooms_num}</span>
                       </li>)
                       : ''
@@ -105,7 +106,7 @@ const PropertyPage = () => {
                     {property.bathrooms_num
                       ? <li className="PropertyCharacteristic PropertyCharacteristics_item">
                         <FontAwesomeIcon icon={faBath} />
-                        <span className="PropertyCharacteristic_title">Санузлов:</span>
+                        <span className="PropertyCharacteristic_title">{t('property_page.bathrooms')}:</span>
                         <span className="PropertyCharacteristic_value">{property.bathrooms_num}</span>
                       </li>
                       : ''
@@ -116,7 +117,7 @@ const PropertyPage = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey='1' className='AccordionPanel Accordion_item'>
-              <Accordion.Header className='AccordionPanel_header'>Характеристики</Accordion.Header>
+              <Accordion.Header className='AccordionPanel_header'>{t('property_page.characteristics')}</Accordion.Header>
               <Accordion.Body className='AccordionPanel_body'>
                 {property.facilities
                   ? <div className="PropertyCharacteristics">
@@ -138,7 +139,7 @@ const PropertyPage = () => {
             </Accordion.Item>
             {property.desc
               ? <Accordion.Item eventKey='2' className='AccordionPanel Accordion_item'>
-                <Accordion.Header className='AccordionPanel_header'>Описание недвижимости</Accordion.Header>
+                <Accordion.Header className='AccordionPanel_header'>{t('property_page.property_description')}</Accordion.Header>
                 <Accordion.Body className='AccordionPanel_body'>
                   <div className="PropertyPage_description">
                     {
@@ -157,7 +158,7 @@ const PropertyPage = () => {
 
           </Accordion>
         </div>
-        <SimilarProperties id={id} department={department} title="Похожие Объекты" />
+        <SimilarProperties id={id} department={department} title={t('property_page.similar_objects')} />
       </div>
     </main>
   );
