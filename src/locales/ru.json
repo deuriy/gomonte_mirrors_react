@@ -1,0 +1,113 @@
+{
+  "menu": {
+    "rent": "Аренда Жилья",
+    "property": "Недвижимость",
+    "about": "О Нас"
+  },
+  "filter": {
+    "action_type": {
+      "buy": "Купить",
+      "rent": "Снять"
+    },
+    "property_type": {
+      "residental_property": "Жилая недвижимость",
+      "apartment": "Квартира",
+      "house_or_villa": "Дом/Вилла",
+      "land_plot": "Земельный участок",
+      "commercial": "Коммерческая"
+    },
+    "cities": {
+      "label": "Город",
+      "bar": "Бар",
+      "bechichi": "Бечичи",
+      "bigovo": "Бигово",
+      "bizikuce": "Bizikuce",
+      "budva": "Будва",
+      "buljarica": "Buljarica",
+      "dobrota": "Доброта",
+      "drobni_pesak": "Дробни песак",
+      "dzhenovichi": "Дженовичи",
+      "herzeg_novi": "Херцег Нови",
+      "kamenovo": "Kamenovo",
+      "kotor": "Котор",
+      "krashichi": "Крашичи",
+      "krimovica": "Кримовица",
+      "lastva": "Ластва",
+      "lepetane": "Лепетане",
+      "lushtica": "Луштица",
+      "petrovac": "Петровац",
+      "podgorica": "Подгорица",
+      "prchan": "Прчан",
+      "przhno_milocher": "Пржно-Милочер",
+      "radanovici": "Radanovici",
+      "rafailovichi": "Рафаиловичи",
+      "rezhevichi": "Режевичи",
+      "risan": "Рисан",
+      "stoliv": "Stoliv",
+      "sutomore": "Sutomore",
+      "sveti_stefan": "Свети Стефан",
+      "tivat": "Тиват",
+      "ulcin": "Ульцин",
+      "zhabliak": "Жабляк"
+    },
+    "price": {
+      "label": "Цена",
+      "price_from": "Цена от",
+      "price_to": "Цена до"
+    },
+    "bedrooms_number": {
+      "label": "К-во спален",
+      "studio": "Студия",
+      "bedrooms_one": "спальня",
+      "bedrooms_plural": "спальни",
+      "more": "и более"
+    },
+    "property_code": "Код объекта",
+    "search": "Поиск"
+  },
+  "mobile_filter": {
+    "label": "Фильтры",
+    "all_property_types": "Все виды",
+    "all_cities": "Все города",
+    "bedrooms_number": "Количество спален",
+    "all": "Все",
+    "clear": "Очистить",
+    "search": "Искать"
+  },
+  "services": {
+    "rent": {
+      "title": "Аренда",
+      "subtitle": "Комфортабельные апартаменты в <1/>Черногории",
+      "description": "Для жизни и отдыха на берегу Адриатического моря",
+      "button": "Все варианты аренды"
+    },
+    "sale": {
+      "title": "Продажа",
+      "description": "Только свежие и актуальные предложения по продаже недвижимости в Черногории с разными ценами на любой вкус. Профессиональный подход и юридическое сопровождение.",
+      "button": "Все варианты продажи"
+    }
+  },
+  "hero_section": {
+    "title": "Аренда и продажа апартаментов и домов в Черногории",
+    "description": "Лучшие предложения по продаже недвижимости в Черногориии с разными ценами на любой вкус. При покупке недвижимости в подарок вы получите Вид на жительство.",
+    "buttons": {
+      "rent": "Арендовать",
+      "sale": "Купить"
+    }
+  },
+  "best_offers": {
+    "title": "Лучшие предложения",
+    "button": "Показать все"
+  },
+  "property_card": {
+    "show": "показать",
+    "price": "Цена",
+    "per_square": "За квадрат"
+  },
+  "footer": {
+    "phone": "Телефон",
+    "information": "Информация",
+    "payment_methods": "Варианты оплаты",
+    "copyright": "© 2020 MonteSale все права защищены"
+  }
+}

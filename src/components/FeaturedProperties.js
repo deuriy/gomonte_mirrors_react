@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { PropertyCard } from './PropertyCard';
+import { t } from 'i18next';
 
 const FeaturedProperties = (props) => {
   let [properties, setProperties] = useState([]);
@@ -57,7 +58,7 @@ const FeaturedProperties = (props) => {
 
         {props.showButton
           ? <div className="PropertyCards_bottom">
-            <Link className="BtnSuccess PropertyCards_btn" to="/rent">Показать все</Link>
+            <Link className="BtnSuccess PropertyCards_btn" to="/rent">{t('best_offers.button')}</Link>
           </div>
           : ''
         }

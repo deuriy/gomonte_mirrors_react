@@ -1,0 +1,9 @@
+{
+  "services": {
+    "rent": {
+      "title": "Rent",
+      "description": "Rent"
+    }
+  },
+  "comfortable_apartments": "Comfortable apartments in <1/>Montenegro"
+}

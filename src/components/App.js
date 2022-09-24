@@ -8,6 +8,8 @@ import { PropertyPage } from '../pages/PropertyPage';
 
 import { Layout } from './Layout';
 
+import '../i18n';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../scss/App.scss';
 
