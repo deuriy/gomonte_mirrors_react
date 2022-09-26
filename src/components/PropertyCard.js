@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import loadingImage from '../assets/img/realestate_loading.gif';
+import { t } from 'i18next';
 
 const truncate = (input, maxlength) => input.length > maxlength ? `${input.substring(0, maxlength)}...` : input;
 
@@ -69,7 +70,7 @@ const PropertyCard = ({ data }) => {
           </div>
           : ''
         }
-        <Link className="PropertyCard_moreLink" to={`/properties/${idPrefix + data.code}`}>показать</Link>
+        <Link className="PropertyCard_moreLink" to={`/properties/${idPrefix + data.code}`}>{t('property_card.show')}</Link>
       </div>
       <div className="PropertyCardCharacteristics PropertyCard_characteristics">
         <div className="PropertyCardCharacteristic PropertyCardCharacteristic-location PropertyCardCharacteristics_item">
@@ -82,7 +83,7 @@ const PropertyCard = ({ data }) => {
       <div className="PropertyPrices PropertyCard_prices">
         {price
           ? <div className="PropertyPrice PropertyPrices_item">
-            <div className="PropertyPrice_label">Цена</div>
+            <div className="PropertyPrice_label">{t('property_card.price')}</div>
             <div className="PropertyPrice_value">€{price.toLocaleString()}</div>
           </div>
           : ''
@@ -90,7 +91,7 @@ const PropertyCard = ({ data }) => {
 
         {pricePerSquare
           ? <div className="PropertyPrice PropertyPrices_item">
-            <div className="PropertyPrice_label">За квадрат</div>
+            <div className="PropertyPrice_label">{t('property_card.per_square')}</div>
             <div className="PropertyPrice_value">€{pricePerSquare.toLocaleString()}</div>
           </div>
           : ''
