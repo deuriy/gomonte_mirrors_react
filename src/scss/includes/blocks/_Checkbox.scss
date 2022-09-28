@@ -1,0 +1,37 @@
+.Checkbox {
+  position: relative;
+
+  &_input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+
+    &:checked~.Checkbox_label::before {
+      // content: "\f00c";
+      content: "";
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z' fill='%23009ece'/%3E%3C/svg%3E") 0 0 no-repeat;
+    }
+  }
+
+  &_label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 6px 0;
+    column-gap: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1;
+    color: $filter-link;
+
+    &::before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      border: 1px solid $checkbox-border-color;
+      background-color: $light;
+      color: $info;
+      font: normal normal normal 13px/1 'FontAwesome';
+      transition: all .4s ease;
+    }
+  }
+}

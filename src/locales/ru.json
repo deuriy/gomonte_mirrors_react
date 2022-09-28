@@ -52,14 +52,14 @@
     },
     "price": {
       "label": "Цена",
-      "price_from": "Цена от",
-      "price_to": "Цена до"
+      "from": "Цена от",
+      "to": "Цена до"
     },
     "bedrooms_number": {
       "label": "К-во спален",
       "studio": "Студия",
-      "bedrooms_one": "спальня",
-      "bedrooms_plural": "спальни",
+      "one": "спальня",
+      "plural": "спальни",
       "more": "и более"
     },
     "property_code": "Код объекта",

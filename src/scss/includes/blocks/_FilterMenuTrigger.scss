@@ -4,16 +4,24 @@
   align-items: center;
   gap: 28px;
   padding: 16px 10px 16px 20px;
+  border: none;
+  outline: none;
   font-size: 14px;
   color: $secondary;
+  background: $light;
   text-decoration: none;
 
-  &::after {
-    content: "\f107";
-    font: normal normal normal 14px/1 FontAwesome;
-    border: none;
+  &>svg {
+    width: 11px;
     color: darken($light, 25);
   }
+
+  // &::after {
+  //   content: "\f107";
+  //   font: normal normal normal 14px/1 FontAwesome;
+  //   border: none;
+  //   color: darken($light, 25);
+  // }
 
   &:hover,
   &:focus {
