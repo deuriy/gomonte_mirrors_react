@@ -8,7 +8,7 @@ import { useFilterSearchParams } from '../../hooks/useFilterSearchParams';
 import { CheckboxList } from './CheckboxList';
 import { NumberRange } from './NumberRange';
 import { RadioBtnTabs } from './RadioBtnTabs';
-import { RadiobtnsList } from './RadiobtnsList';
+import { RadioBtnsList } from './RadioBtnsList';
 
 import { allCities } from '../../data/cities';
 import { allDepartments } from '../../data/departments';
@@ -19,6 +19,7 @@ const Filter = () => {
   let params = useFilterSearchParams();
 
   let [department, setDepartment] = useState(params.department);
+  let [disabledDepartment, setDisabledDepartment] = useState([]);
   let [estateType, setEstateType] = useState(params.estateType);
   let [cities, setCities] = useState(params.cities);
   let [priceMin, setPriceMin] = useState(params.priceMin);
@@ -28,6 +29,15 @@ const Filter = () => {
   let [footageMax, setFootageMax] = useState(params.footageMax);
 
   let navigate = useNavigate();
+
+  function onChangeEstateTypes(event) {
+    if (event.target.value === 'landplots') {
+      setDisabledDepartment(['rent']);
+      setDepartment('sale');
+    } else {
+      setDisabledDepartment([]);
+    }
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -53,10 +63,10 @@ const Filter = () => {
     <form className="Filter hidden-xlMinus" onSubmit={handleSubmit}>
       <div className="Filter_items">
         <div className='Filter_top'>
-          <RadioBtnTabs name="estate_type" values={allEstateTypes} field={estateType} setFieldFunc={setEstateType} />
+          <RadioBtnTabs name="estate_type" values={allEstateTypes} field={estateType} setFieldFunc={setEstateType} onChangeFunc={onChangeEstateTypes} />
         </div>
         <div className='Filter_bottom'>
-          <RadiobtnsList name="department" values={allDepartments} field={department} setFieldFunc={setDepartment} />
+          <RadioBtnsList name="department" values={allDepartments} field={department} setFieldFunc={setDepartment} disabledValues={disabledDepartment} />
 
           <CheckboxList name="cities" values={allCities} valueOffset="1" defaultLabel={t('filter.cities.label')} field={cities} setFieldFunc={setCities} />
 

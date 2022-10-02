@@ -1,6 +1,10 @@
-const RadioBtnTabs = ({ name, values, field, setFieldFunc, ...rest }) => {
+const RadioBtnTabs = ({ name, values, field, setFieldFunc, onChangeFunc = null, ...rest }) => {
   function onChangeField(event) {
     setFieldFunc(event.target.value);
+
+    if (typeof onChangeFunc === 'function') {
+      onChangeFunc(event);
+    }
   }
 
   return (

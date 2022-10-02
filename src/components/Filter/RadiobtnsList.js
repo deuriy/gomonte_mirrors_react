@@ -2,7 +2,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { CustomToggle } from '../CustomToggle';
 
-const RadiobtnsList = ({ name, values, field, setFieldFunc, ...rest }) => {
+const RadioBtnsList = ({ name, values, field, setFieldFunc, disabledValues = [], ...rest }) => {
   function onChangeField(event) {
     setFieldFunc(event.target.value);
   }
@@ -15,8 +15,8 @@ const RadiobtnsList = ({ name, values, field, setFieldFunc, ...rest }) => {
           {
             Object.entries(values).map(item => (
               <div key={item[0]} className="RadioButton RadioButtonList_item">
-                <input className="RadioButton_input" type="radio" name={name} value={item[0]} id={`id_${name}_${item[0]}`} checked={field === item[0] ? true : false} onChange={onChangeField} />
-                <label className="RadioButton_label" htmlFor={`id_${name}_${item[0]}`}>{item[1]}</label>
+                <input className="RadioButton_input" type="radio" name={name} value={item[0]} id={`id_${name}_${item[0]}`} checked={field === item[0] ? true : false} onChange={onChangeField} disabled={disabledValues.includes(item[0])} />
+                <label className="RadioButton_label" htmlFor={`id_${name}_${item[0]}`} disabled={disabledValues.includes(item[0])}>{item[1]}</label>
               </div>
             ))
           }
@@ -26,4 +26,4 @@ const RadiobtnsList = ({ name, values, field, setFieldFunc, ...rest }) => {
   );
 }
 
-export { RadiobtnsList };
+export { RadioBtnsList };

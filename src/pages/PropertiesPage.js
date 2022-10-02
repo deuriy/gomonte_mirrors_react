@@ -18,8 +18,8 @@ const PropertiesPage = () => {
   let params = useFilterSearchParams();
   let title = params.department === 'rent' ? t('properties_pages.rent') : t('properties_pages.sale');
 
-  console.log(params);
-  console.log(properties);
+  // console.log(params);
+  // console.log(properties);
 
   useEffect(() => {
     fetch('http://0.0.0.0:8000/rpc/', {

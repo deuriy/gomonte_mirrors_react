@@ -29,7 +29,8 @@ function getBedroomsLabel(bedrooms_num) {
 
 const PropertyCard = ({ data }) => {
   let price = data[`price_${data.department}`] !== null ? data[`price_${data.department}`] : '';
-  let pricePerSquare = price / data.footage_indoor;
+  let footage = data.footage_indoor || data.footage_land;
+  let pricePerSquare = price / footage;
   let idPrefix = data.department === 'sale' ? 's' : 'r';
 
   return (
@@ -77,7 +78,7 @@ const PropertyCard = ({ data }) => {
           <div className="PropertyCardCharacteristic_value">{data.location.name}</div>
         </div>
         <div className="PropertyCardCharacteristic PropertyCardCharacteristic-square PropertyCardCharacteristics_item">
-          <div className="PropertyCardCharacteristic_value">{getBedroomsLabel(data.bedrooms_num)} - {data.footage_indoor} m<sup>2</sup></div>
+          <div className="PropertyCardCharacteristic_value">{getBedroomsLabel(data.bedrooms_num)} - {footage} m<sup>2</sup></div>
         </div>
       </div>
       <div className="PropertyPrices PropertyCard_prices">

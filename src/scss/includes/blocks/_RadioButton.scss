@@ -1,16 +1,15 @@
 .RadioButton {
-  &:hover {
-    .RadioButton_label::before {
-      // border-color: $chocolate;
-    }
-  }
-
   &_input {
     position: absolute;
     clip: rect(0, 0, 0, 0);
 
     &:checked~.RadioButton_label::after {
       background-color: $radio-circle-color;
+    }
+
+    &[disabled]~.RadioButton_label {
+      opacity: 0.6;
+      cursor: default;
     }
   }
 
