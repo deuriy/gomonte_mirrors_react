@@ -1,20 +1,32 @@
 .Filter {
 	display: grid;
 	grid-template-columns: 1fr auto;
+	align-items: end;
 	gap: 15px;
 	width: 1190px;
 	max-width: 100%;
-	
+
 	&_items {
-		display: flex;
-		justify-content: flex-start;
-		padding: 0 47px;
-		border: 1px solid $filter-border-color;
+		// padding: 0 0 0 15px;
+		// border: 1px solid $filter-border-color;
 		border-radius: 5px;
-		background: $light;
-  }
-	
+		// background: $light;
+	}
+
+	&_bottom {
+		display: flex;
+		// justify-content: flex-start;
+		// display: grid;
+		// grid-template-columns: repeat(4, 1fr);
+		// padding: 0 47px;
+	}
+
 	&_item {
+		flex: 1 0 0;
 		border-right: 1px solid $border-color;
-  }
+
+		&:last-child {
+			border-right: none;
+		}
+	}
 }

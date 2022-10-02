@@ -1,0 +1,17 @@
+.RadioBtnTabs {
+  &_list {
+    list-style: none;
+    display: flex;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  &_item {
+    flex: 1 0 0;
+    border-right: 1px solid $radio-btn-tab-border;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

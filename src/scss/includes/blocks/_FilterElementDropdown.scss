@@ -1,4 +1,5 @@
 .FilterElementDropdown {
+  min-width: 100%;
   // padding: 8px 15px;
   padding: 18px 15px;
 
@@ -39,8 +40,8 @@
   }
 
   &-checkboxList {
-    padding-top: 0;
+    padding-top: 10px;
     padding-right: 0;
-    padding-bottom: 0;
+    padding-bottom: 10px;
   }
 }

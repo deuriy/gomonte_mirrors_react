@@ -1,0 +1,40 @@
+import { i18n } from '../i18n';
+
+const allCities = [
+  i18n.t('filter.cities.budva'),
+  i18n.t('filter.cities.bechichi'),
+  i18n.t('filter.cities.bar'),
+  i18n.t('filter.cities.zhabliak'),
+  i18n.t('filter.cities.kotor'),
+  i18n.t('filter.cities.krimovica'),
+  i18n.t('filter.cities.lastva'),
+  i18n.t('filter.cities.markovichi'),
+  i18n.t('filter.cities.petrovac'),
+  i18n.t('filter.cities.podgorica'),
+  i18n.t('filter.cities.przhno'),
+  i18n.t('filter.cities.rafailovichi'),
+  i18n.t('filter.cities.rezhevichi'),
+  i18n.t('filter.cities.risan'),
+  i18n.t('filter.cities.sveti_stefan'),
+  i18n.t('filter.cities.tivat'),
+  i18n.t('filter.cities.herzeg_novi'),
+  i18n.t('filter.cities.cetinje'),
+  i18n.t('filter.cities.sutomore'),
+  i18n.t('filter.cities.krashichi'),
+  i18n.t('filter.cities.stoliv'),
+  i18n.t('filter.cities.seoce'),
+  i18n.t('filter.cities.buljarica'),
+  i18n.t('filter.cities.blizikuce'),
+  i18n.t('filter.cities.radanovici'),
+  i18n.t('filter.cities.kamenovo'),
+  i18n.t('filter.cities.dobrota'),
+  i18n.t('filter.cities.lushtica'),
+  i18n.t('filter.cities.lapchichi'),
+  i18n.t('filter.cities.dzhenovichi'),
+  i18n.t('filter.cities.ulcin'),
+  i18n.t('filter.cities.bigovo'),
+  i18n.t('filter.cities.strp'),
+  i18n.t('filter.cities.dobra_voda')
+];
+
+export { allCities };
