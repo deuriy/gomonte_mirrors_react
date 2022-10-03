@@ -15,7 +15,7 @@ import { allDepartments } from '../../data/departments';
 import { allEstateTypes } from '../../data/estate_types';
 import { allBedroomsNum } from '../../data/bedrooms_num';
 
-const Filter = () => {
+const Filter = ({ loadFunc = () => { } }) => {
   let params = useFilterSearchParams();
 
   let [department, setDepartment] = useState(params.department);
@@ -57,6 +57,10 @@ const Filter = () => {
       pathname: url,
       search: `?${createSearchParams(params)}`
     });
+
+    if (typeof loadFunc === 'function') {
+      loadFunc();
+    }
   }
 
   return (

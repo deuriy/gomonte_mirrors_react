@@ -1,27 +1,38 @@
 import i18n, { t } from 'i18next';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { useFilterSearchParams } from '../hooks/useFilterSearchParams';
 
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { Filter } from "../components/Filter";
 import { PropertyCard } from "../components/PropertyCard";
+import { Pagination } from '../components/Pagination';
 import { NotFound } from '../components/NotFound';
 
 const PropertiesPage = () => {
-  let [properties, setProperties] = useState([]);
-  let [page, setPage] = useState(1);
+  let [searchParams, setSearchParams] = useSearchParams();
 
-  let params = useFilterSearchParams();
-  let title = params.department === 'rent' ? t('properties_pages.rent') : t('properties_pages.sale');
+  let [properties, setProperties] = useState([]);
+  let [currentPage, setCurrentPage] = useState(Number(searchParams.get('current_page')) || 1);
+  // let [currentPage, setCurrentPage] = useState(2);
+  let [totalPages, setTotalPages] = useState(1);
+  // console.log(currentPage);
+  console.log('Run!');
+
+  // let currentPage = 1;
+  // let totalPages = 1;
+
+  let { department, estateType, cities, bedroomsNum, priceMin, priceMax, footageMin, footageMax } = useFilterSearchParams();
+  let title = (department === 'rent') ? t('properties_pages.rent') : t('properties_pages.sale');
 
   // console.log(params);
   // console.log(properties);
 
-  useEffect(() => {
+  function loadProperties() {
+    console.log(currentPage);
+    // console.log(totalPages);
+
     fetch('http://0.0.0.0:8000/rpc/', {
       method: 'POST',
       headers: {
@@ -33,24 +44,42 @@ const PropertiesPage = () => {
         "method": "get_real_estate_properties",
         "params": {
           "lang": i18n.language,
-          "department": params.department,
-          "estate_type": params.estateType,
-          "cities": params.cities,
-          "bedrooms_num": params.bedroomsNum,
-          "price_min": params.priceMin,
-          "price_max": params.priceMax,
-          "footage_from": params.footageMin,
-          "footage_to": params.footageMax,
-          "page": page
+          "department": department,
+          "estate_type": estateType,
+          "cities": cities,
+          "bedrooms_num": bedroomsNum,
+          "price_min": priceMin,
+          "price_max": priceMax,
+          "footage_from": footageMin,
+          "footage_to": footageMax,
+          "page": currentPage
         }
       })
     })
       .then(res => res.json())
-      .then(data => setProperties(data.result.records))
+      .then(data => {
+        setProperties(data.result.records);
+        setCurrentPage(data.result.pagination.current_page);
+        setTotalPages(data.result.pagination.total_pages);
+        // console.log(data);
+        // currentPage = Number(data.result.pagination.current_page);
+        // totalPages = Number(data.result.pagination.total_pages);
+      })
       .catch(err => {
         console.warn(err);
       });
-  });
+  }
+
+  function onClickPaginationHandler(event) {
+    setCurrentPage(Number(event.target.dataset.value));
+    setSearchParams({
+      "current_page": Number(event.target.dataset.value)
+    });
+  }
+
+  useEffect(() => {
+    loadProperties();
+  }, [currentPage]);
 
   return (
     <main className="Main">
@@ -66,7 +95,7 @@ const PropertiesPage = () => {
           <div className="row hidden-xlMinus">
             <div className="col-12">
               <div className="PropertiesPage_filterWrapper">
-                <Filter />
+                <Filter loadFunc={loadProperties} />
               </div>
             </div>
             {properties.length ? (
@@ -82,31 +111,9 @@ const PropertiesPage = () => {
                     }
                   </div>
                 </div>
-                {properties.length > 12 ? (
+                {totalPages > 1 ? (
                   <div className="PropertyCards_bottom">
-                    <div className="Pagination">
-                      <ul className="Pagination_list">
-                        <li className="Pagination_item">
-                          <a className="Pagination_prev" href="#">
-                            <FontAwesomeIcon icon={faAngleLeft} />
-                          </a>
-                        </li>
-                        <li className="Pagination_item Pagination_item-current">
-                          <a className="Pagination_link" href="#">1</a>
-                        </li>
-                        <li className="Pagination_item">
-                          <a className="Pagination_link" href="#">2</a>
-                        </li>
-                        <li className="Pagination_item">
-                          <a className="Pagination_link" href="#">3</a>
-                        </li>
-                        <li className="Pagination_item">
-                          <a className="Pagination_next" href="#">
-                            <FontAwesomeIcon icon={faAngleRight} />
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                    <Pagination currentPage={currentPage} totalPages={totalPages} onClickHandler={onClickPaginationHandler} />
                   </div>
                 ) : ''}
               </div>
