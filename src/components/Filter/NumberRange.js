@@ -11,8 +11,6 @@ const NumberRange = ({ nameFrom = "min_number", nameTo = "max_number", valueFrom
     setValueTo(event.target.value);
   }
 
-  // console.log(rest);
-
   return (
     <Dropdown className="FilterElement Filter_item" {...rest}>
       <Dropdown.Toggle as={CustomToggle} className="FilterMenuTrigger">{label}</Dropdown.Toggle>

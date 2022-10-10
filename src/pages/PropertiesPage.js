@@ -1,9 +1,7 @@
 import i18n, { t } from 'i18next';
 
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-
-import { useFilterSearchParams } from '../hooks/useFilterSearchParams';
+import { useState, useEffect, useRef } from 'react';
+import { useSearchParams, useLocation } from 'react-router-dom';
 
 import { Filter } from "../components/Filter";
 import { PropertyCard } from "../components/PropertyCard";
@@ -11,28 +9,49 @@ import { Pagination } from '../components/Pagination';
 import { NotFound } from '../components/NotFound';
 
 const PropertiesPage = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
+
+  let propsRef = useRef(null);
+
+  let location = useLocation();
+  let pathname = location.pathname;
+
+  let department = pathname.substring(1) || 'sale';
+
+  let estateType = searchParams.get('estate_type') || 'flats';
+  let cities = searchParams.getAll('cities') || [];
+  let bedroomsNum = searchParams.getAll('bedrooms_num') || [];
+  let priceMin = Number(searchParams.get('price_min')) || 100;
+  let priceMax = Number(searchParams.get('price_max')) || 50000;
+  let footageMin = Number(searchParams.get('footage_min')) || 0;
+  let footageMax = Number(searchParams.get('footage_max')) || 50000;
+
+  cities = cities.map(item => Number(item));
+  bedroomsNum = bedroomsNum.map(item => Number(item));
 
   let [properties, setProperties] = useState([]);
   let [currentPage, setCurrentPage] = useState(Number(searchParams.get('current_page')) || 1);
-  // let [currentPage, setCurrentPage] = useState(2);
   let [totalPages, setTotalPages] = useState(1);
-  // console.log(currentPage);
-  console.log('Run!');
+  let [isLoaded, setLoading] = useState(false);
 
-  // let currentPage = 1;
-  // let totalPages = 1;
+  let params = {
+    estateType,
+    cities,
+    bedroomsNum,
+    priceMin,
+    priceMax,
+    footageMin,
+    footageMax,
+    currentPage
+  };
 
-  let { department, estateType, cities, bedroomsNum, priceMin, priceMax, footageMin, footageMax } = useFilterSearchParams();
   let title = (department === 'rent') ? t('properties_pages.rent') : t('properties_pages.sale');
 
-  // console.log(params);
-  // console.log(properties);
+  useEffect(() => {
+    loadProperties();
+  }, [isLoaded, department]);
 
   function loadProperties() {
-    console.log(currentPage);
-    // console.log(totalPages);
-
     fetch('http://0.0.0.0:8000/rpc/', {
       method: 'POST',
       headers: {
@@ -61,29 +80,18 @@ const PropertiesPage = () => {
         setProperties(data.result.records);
         setCurrentPage(data.result.pagination.current_page);
         setTotalPages(data.result.pagination.total_pages);
-        // console.log(data);
-        // currentPage = Number(data.result.pagination.current_page);
-        // totalPages = Number(data.result.pagination.total_pages);
+
+        setLoading(true);
+        propsRef.current.scrollIntoView();
       })
       .catch(err => {
         console.warn(err);
       });
   }
 
-  function onClickPaginationHandler(event) {
-    setCurrentPage(Number(event.target.dataset.value));
-    setSearchParams({
-      "current_page": Number(event.target.dataset.value)
-    });
-  }
-
-  useEffect(() => {
-    loadProperties();
-  }, [currentPage]);
-
   return (
     <main className="Main">
-      <div className="PropertiesPage">
+      <div className="PropertiesPage" ref={propsRef}>
         <div className="container">
           {title && (
             <div className="row">
@@ -95,7 +103,7 @@ const PropertiesPage = () => {
           <div className="row hidden-xlMinus">
             <div className="col-12">
               <div className="PropertiesPage_filterWrapper">
-                <Filter loadFunc={loadProperties} />
+                <Filter params={params} setCurrentPage={setCurrentPage} departmentValue={department} setLoading={setLoading} />
               </div>
             </div>
             {properties.length ? (
@@ -113,10 +121,12 @@ const PropertiesPage = () => {
                 </div>
                 {totalPages > 1 ? (
                   <div className="PropertyCards_bottom">
-                    <Pagination currentPage={currentPage} totalPages={totalPages} onClickHandler={onClickPaginationHandler} />
+                    <Pagination params={params} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} setLoading={setLoading} />
                   </div>
                 ) : ''}
               </div>
+            ) : !isLoaded ? (
+              <div>Loading data...</div>
             ) : (
               <NotFound />
             )}

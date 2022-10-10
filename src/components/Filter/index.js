@@ -1,9 +1,9 @@
 import { t } from 'i18next';
 
-import { useState } from 'react';
-import { createSearchParams, useNavigate } from 'react-router-dom';
+import '../../i18n';
 
-import { useFilterSearchParams } from '../../hooks/useFilterSearchParams';
+import { useState, useEffect } from 'react';
+import { useSearchParams, createSearchParams, useNavigate } from 'react-router-dom';
 
 import { CheckboxList } from './CheckboxList';
 import { NumberRange } from './NumberRange';
@@ -15,10 +15,11 @@ import { allDepartments } from '../../data/departments';
 import { allEstateTypes } from '../../data/estate_types';
 import { allBedroomsNum } from '../../data/bedrooms_num';
 
-const Filter = ({ loadFunc = () => { } }) => {
-  let params = useFilterSearchParams();
+const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
+  let [searchParams] = useSearchParams();
+  let navigate = useNavigate();
 
-  let [department, setDepartment] = useState(params.department);
+  let [department, setDepartment] = useState(departmentValue);
   let [disabledDepartment, setDisabledDepartment] = useState([]);
   let [estateType, setEstateType] = useState(params.estateType);
   let [cities, setCities] = useState(params.cities);
@@ -27,8 +28,6 @@ const Filter = ({ loadFunc = () => { } }) => {
   let [bedroomsNum, setBedroomsNum] = useState(params.bedroomsNum);
   let [footageMin, setFootageMin] = useState(params.footageMin);
   let [footageMax, setFootageMax] = useState(params.footageMax);
-
-  let navigate = useNavigate();
 
   function onChangeEstateTypes(event) {
     if (event.target.value === 'landplots') {
@@ -39,8 +38,34 @@ const Filter = ({ loadFunc = () => { } }) => {
     }
   }
 
+  useEffect(() => {
+    setEstateType(params.estateType);
+    setCities(params.cities.map(item => Number(item)));
+    setPriceMin(params.priceMin);
+    setPriceMax(params.priceMax);
+    setBedroomsNum(params.bedroomsNum.map(item => Number(item)));
+    setFootageMin(params.footageMin);
+    setFootageMax(params.footageMax);
+
+    if (setLoading) {
+      setLoading(false);
+    }
+
+    if (!searchParams.get("current_page") && setCurrentPage) {
+      setCurrentPage(1);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    setDepartment(departmentValue);
+  }, [departmentValue]);
+
   function handleSubmit(event) {
     event.preventDefault();
+
+    if (setCurrentPage) {
+      setCurrentPage(1);
+    }
 
     let url = `/${department}`;
     let params = {
@@ -50,7 +75,8 @@ const Filter = ({ loadFunc = () => { } }) => {
       "price_max": priceMax,
       "bedrooms_num": bedroomsNum,
       "footage_min": footageMin,
-      "footage_max": footageMax
+      "footage_max": footageMax,
+      "current_page": 1
     };
 
     navigate({
@@ -58,8 +84,8 @@ const Filter = ({ loadFunc = () => { } }) => {
       search: `?${createSearchParams(params)}`
     });
 
-    if (typeof loadFunc === 'function') {
-      loadFunc();
+    if (setLoading) {
+      setLoading(false);
     }
   }
 
