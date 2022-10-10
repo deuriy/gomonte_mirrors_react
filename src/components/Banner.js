@@ -19,7 +19,7 @@ const Banner = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <Filter params={params} departmentValue='rent' />
+            <Filter params={params} departmentValue='sale' />
           </div>
         </div>
       </div>

@@ -16,6 +16,8 @@ const PropertiesPage = () => {
   let location = useLocation();
   let pathname = location.pathname;
 
+  let lang = i18n.language;
+  console.log(lang);
   let department = pathname.substring(1) || 'sale';
 
   let estateType = searchParams.get('estate_type') || 'flats';
@@ -49,7 +51,8 @@ const PropertiesPage = () => {
 
   useEffect(() => {
     loadProperties();
-  }, [isLoaded, department]);
+    console.log('lang');
+  }, [isLoaded, department, lang]);
 
   function loadProperties() {
     fetch('http://0.0.0.0:8000/rpc/', {
@@ -62,7 +65,7 @@ const PropertiesPage = () => {
         "id": "fj45hsg",
         "method": "get_real_estate_properties",
         "params": {
-          "lang": i18n.language,
+          "lang": lang,
           "department": department,
           "estate_type": estateType,
           "cities": cities,

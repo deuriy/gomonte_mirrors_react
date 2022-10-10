@@ -1,6 +1,6 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { CustomToggle } from '../CustomToggle';
+import { FilterMenuTrigger } from './FilterMenuTrigger';
 
 const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setFieldFunc, ...rest }) => {
   valueOffset = Number(valueOffset);
@@ -25,7 +25,7 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
 
   return (
     <Dropdown className="FilterElement Filter_item" {...rest}>
-      <Dropdown.Toggle as={CustomToggle} className="FilterMenuTrigger">
+      <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">
         <span className='FilterMenuTrigger_labelText'>{getFieldLabel()}</span>
       </Dropdown.Toggle>
       <Dropdown.Menu className="FilterElementDropdown FilterElement_dropdown FilterElementDropdown-checkboxList">

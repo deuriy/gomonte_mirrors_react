@@ -1,9 +1,146 @@
 {
+  "menu": {
+    "rent": "Rent",
+    "property": "Property",
+    "about": "About"
+  },
+  "filter": {
+    "department": {
+      "buy": "Buy",
+      "rent": "Rent"
+    },
+    "estate_type": {
+      "residental_property": "Residental property",
+      "flats": "Flats",
+      "houses": "Houses/Villas",
+      "landplots": "Land Plots",
+      "commercial": "Commercial"
+    },
+    "cities": {
+      "label": "City",
+      "budva": "Budva",
+      "bechichi": "Bečići",
+      "bar": "Bar",
+      "zhabliak": "Žabljak",
+      "kotor": "Kotor",
+      "krimovica": "Krimovica",
+      "lastva": "Lastva",
+      "markovichi": "Markovići",
+      "petrovac": "Petrovac",
+      "podgorica": "Podgorica",
+      "przhno": "Pržno",
+      "rafailovichi": "Rafailovići",
+      "rezhevichi": "Reževići",
+      "risan": "Risan",
+      "sveti_stefan": "Sveti Stefan",
+      "tivat": "Tivat",
+      "herzeg_novi": "Herceg Novi",
+      "cetinje": "Cetinje",
+      "sutomore": "Sutomore",
+      "krashichi": "Krasići",
+      "stoliv": "Stoliv",
+      "seoce": "Seoce",
+      "buljarica": "Buljarica",
+      "blizikuce": "Blizikuće",
+      "radanovici": "Radanovići",
+      "kamenovo": "Kamenovo",
+      "dobrota": "Dobrota",
+      "lushtica": "Luštica",
+      "lapchichi": "Lapcici",
+      "dzhenovichi": "Djenovici",
+      "ulcin": "Ulcinj",
+      "bigovo": "Bigovo",
+      "strp": "Strp",
+      "dobra_voda": "Dobra Voda"
+    },
+    "price": {
+      "label": "Price",
+      "min": "Price from",
+      "max": "Price to"
+    },
+    "footage": {
+      "label": "Square",
+      "min": "from (m²)",
+      "max": "to (m²)"
+    },
+    "bedrooms_number": {
+      "label": "Bedrooms number",
+      "studio": "Studio",
+      "one": "bedroom",
+      "plural": "bedrooms",
+      "more": "and more"
+    },
+    "property_code": "Property code",
+    "search": "Search"
+  },
+  "mobile_filter": {
+    "label": "Filters",
+    "all_estate_types": "All types",
+    "all_cities": "All cities",
+    "bedrooms_number": "Bedrooms number",
+    "all": "All",
+    "clear": "Clear",
+    "search": "Search"
+  },
   "services": {
     "rent": {
       "title": "Rent",
-      "description": "Rent"
+      "subtitle": "Comfortable apartments in <1/>Montenegro",
+      "description": "For life and recreation on the shores of the Adriatic Sea",
+      "button": "All rental options"
+    },
+    "sale": {
+      "title": "Sale",
+      "description": "Only fresh and relevant offers for the sale of real estate in Montenegro with different prices for every taste. Professional approach and legal support.",
+      "button": "All sale options"
     }
   },
-  "comfortable_apartments": "Comfortable apartments in <1/>Montenegro"
+  "hero_section": {
+    "title": "Rent and sale of apartments and houses in Montenegro",
+    "description": "The best offers for the sale of real estate in Montenegro with different prices for every taste. When buying a property, you will receive a residence permit as a gift.",
+    "buttons": {
+      "rent": "Rent",
+      "sale": "Buy"
+    }
+  },
+  "best_offers": {
+    "title": "Best offers",
+    "button": "Show all"
+  },
+  "property_card": {
+    "show": "show",
+    "price": "Price",
+    "per_square": "Per square"
+  },
+  "footer": {
+    "phone": "Phone",
+    "information": "Information",
+    "payment_methods": "Payment methods",
+    "copyright": "© 2020 MonteSale all rights reserved"
+  },
+  "about_page": {
+    "title": "We strive and develop",
+    "text": "Our company MonteSale always tries to satisfy the needs of any client coming to Montenegro as much as possible. Our employees have extensive experience in real estate, legal matters, immigration, as well as providing various types of services, which you can find on our website. We will always be happy to assist in any matters relating to your stay on the territory of Montenegro. We are waiting for you in this beautiful warm and sunny country.",
+    "phone": "Contact phone"
+  },
+  "properties_pages": {
+    "rent": "Rent",
+    "sale": "Sale"
+  },
+  "not_found": {
+    "title": "View current offers",
+    "description": "No properties found. Please try again with different filter options."
+  },
+  "property_page": {
+    "more_materials": "More materials",
+    "location_and_cost": "Location and cost",
+    "bedrooms_number": "Bedrooms number",
+    "city": "City",
+    "bedrooms": "Bedrooms",
+    "price_per_year": "per year",
+    "bathrooms": "Bathrooms",
+    "characteristics": "Characteristics",
+    "property_description": "Property description",
+    "similar_objects": "Similar Objects"
+  }
 }

@@ -1,6 +1,6 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { CustomToggle } from '../CustomToggle';
+import { FilterMenuTrigger } from './FilterMenuTrigger';
 
 const RadioBtnsList = ({ name, values, field, setFieldFunc, disabledValues = [], ...rest }) => {
   function onChangeField(event) {
@@ -9,7 +9,7 @@ const RadioBtnsList = ({ name, values, field, setFieldFunc, disabledValues = [],
 
   return (
     <Dropdown className="FilterElement Filter_item" {...rest}>
-      <Dropdown.Toggle as={CustomToggle} className="FilterMenuTrigger">{values[field]}</Dropdown.Toggle>
+      <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">{values[field]}</Dropdown.Toggle>
       <Dropdown.Menu className="FilterElementDropdown FilterElement_dropdown">
         <div className='RadioButtonList'>
           {
