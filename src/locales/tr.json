@@ -1,4 +1,146 @@
 {
-  "rent": "Аренда",
-  "sale": "Продажа"
+  "menu": {
+    "rent": "Mülk kiralama",
+    "property": "Emlak",
+    "about": "Hakkımızda"
+  },
+  "filter": {
+    "department": {
+      "buy": "Satın almak",
+      "rent": "Kiraya vermek"
+    },
+    "estate_type": {
+      "residental_property": "Yerleşim yerleri",
+      "flats": "Düz",
+      "houses": "Ev/Villa",
+      "landplots": "Arsa",
+      "commercial": "Ticari"
+    },
+    "cities": {
+      "label": "Şehir",
+      "budva": "Budva",
+      "bechichi": "Bečići",
+      "bar": "Bar",
+      "zhabliak": "Žabljak",
+      "kotor": "Kotor",
+      "krimovica": "Krimovica",
+      "lastva": "Lastva",
+      "markovichi": "Markovići",
+      "petrovac": "Petrovac",
+      "podgorica": "Podgorica",
+      "przhno": "Pržno",
+      "rafailovichi": "Rafailovići",
+      "rezhevichi": "Reževići",
+      "risan": "Risan",
+      "sveti_stefan": "Sveti Stefan",
+      "tivat": "Tivat",
+      "herzeg_novi": "Herceg Novi",
+      "cetinje": "Cetinje",
+      "sutomore": "Sutomore",
+      "krashichi": "Krasići",
+      "stoliv": "Stoliv",
+      "seoce": "Seoce",
+      "buljarica": "Buljarica",
+      "blizikuce": "Blizikuće",
+      "radanovici": "Radanovići",
+      "kamenovo": "Kamenovo",
+      "dobrota": "Dobrota",
+      "lushtica": "Luštica",
+      "lapchichi": "Lapcici",
+      "dzhenovichi": "Djenovici",
+      "ulcin": "Ulcinj",
+      "bigovo": "Bigovo",
+      "strp": "Strp",
+      "dobra_voda": "Dobra Voda"
+    },
+    "price": {
+      "label": "Fiyat",
+      "min": "Minimum fiyat",
+      "max": "Maksimum fiyat"
+    },
+    "footage": {
+      "label": "Meydan",
+      "min": "itibaren (m²)",
+      "max": "(m²)'ye kadar"
+    },
+    "bedrooms_number": {
+      "label": "Yatak odası sayısı",
+      "studio": "Stüdyo",
+      "one": "yatak odası",
+      "plural": "yatak odaları",
+      "more": "ve dahası"
+    },
+    "property_code": "Nesne kodu",
+    "search": "Arama"
+  },
+  "mobile_filter": {
+    "label": "Filtreler",
+    "all_estate_types": "Her türlü",
+    "all_cities": "Tüm şehirler",
+    "bedrooms_number": "Yatak odası sayısı",
+    "all": "Herşey",
+    "clear": "Temizlemek",
+    "search": "Arama"
+  },
+  "services": {
+    "rent": {
+      "title": "Kiraya vermek",
+      "subtitle": "Karadağ'da konforlu <1/>daireler",
+      "description": "Adriyatik Denizi kıyılarında yaşam ve eğlence için",
+      "button": "Tüm kiralama seçenekleri"
+    },
+    "sale": {
+      "title": "Satış",
+      "description": "Her zevke göre farklı fiyatlarla Karadağ'da gayrimenkul satışı için sadece taze ve ilgili teklifler. Profesyonel yaklaşım ve yasal destek.",
+      "button": "Tüm satış seçenekleri"
+    }
+  },
+  "hero_section": {
+    "title": "Karadağ'da daire ve evlerin kiralanması ve satışı",
+    "description": "Karadağ'da her zevke uygun farklı fiyatlarla gayrimenkul satışı için en iyi teklifler. Bir mülk satın alırken, hediye olarak oturma izni alacaksınız.",
+    "buttons": {
+      "rent": "Kiraya vermek",
+      "sale": "Satın almak"
+    }
+  },
+  "best_offers": {
+    "title": "En iyi teklifler",
+    "button": "Hepsini Göster ↓"
+  },
+  "property_card": {
+    "show": "göstermek",
+    "price": "Fiyat",
+    "per_square": "metrekare başına"
+  },
+  "footer": {
+    "phone": "Telefon",
+    "information": "Bilgi",
+    "payment_methods": "Ödeme seçenekleri",
+    "copyright": "© 2020 MonteSale tüm hakları saklıdır"
+  },
+  "about_page": {
+    "title": "Çalışıyoruz ve geliştiriyoruz",
+    "text": "MonteSale şirketimiz, Karadağ'a gelen her müşterinin ihtiyaçlarını mümkün olduğunca karşılamaya çalışır. Çalışanlarımız gayrimenkul, yasal konular, göçmenlik ve web sitemizde bulabileceğiniz çeşitli hizmetler sunma konusunda geniş deneyime sahiptir. Karadağ topraklarındaki konaklamanızla ilgili her konuda yardımcı olmaktan her zaman memnuniyet duyarız. Bu güzel, sıcak ve güneşli ülkede sizleri bekliyoruz.",
+    "phone": "İletişim Telefonu"
+  },
+  "properties_pages": {
+    "rent": "Kiraya vermek",
+    "sale": "Satış"
+  },
+  "not_found": {
+    "title": "Mevcut teklifleri görüntüle",
+    "description": "Emlak bulunamadı. Lütfen farklı filtre seçenekleriyle tekrar deneyin."
+  },
+  "property_page": {
+    "more_materials": "Daha fazla malzeme",
+    "location_and_cost": "Konum ve maliyet",
+    "bedrooms_number": "Oda sayısı",
+    "city": "Şehir",
+    "bedrooms": "Yatak odaları",
+    "price_per_year": "bir yıllığına",
+    "bathrooms": "Banyolar",
+    "characteristics": "özellikleri",
+    "property_description": "Özellik Açıklaması",
+    "similar_objects": "Benzer Nesneler"
+  }
 }

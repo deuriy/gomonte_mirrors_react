@@ -110,7 +110,7 @@
   "property_card": {
     "show": "show",
     "price": "Price",
-    "per_square": "Per square"
+    "per_square": "Per square meter"
   },
   "footer": {
     "phone": "Phone",
