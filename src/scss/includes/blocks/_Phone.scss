@@ -16,9 +16,8 @@
     }
   }
 
-  &>i {
+  &>svg {
     margin-right: 10px;
     color: $info;
-    transform: rotate(90deg);
   }
 }

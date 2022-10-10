@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+
+import { LanguageContext } from '../components/Provider';
 
 import Accordion from 'react-bootstrap/Accordion';
 
@@ -10,6 +12,8 @@ import { SimilarProperties } from '../components/SimilarProperties';
 import { t } from 'i18next';
 
 const PropertyPage = () => {
+  const { language, setLanguage } = useContext(LanguageContext);
+
   let [property, setProperty] = useState({});
   let { id } = useParams();
   let department = id[0] === 's' ? 'sale' : 'rent';
@@ -27,7 +31,7 @@ const PropertyPage = () => {
         "id": "fj45hsg",
         "method": "get_property_by_id",
         "params": {
-          "lang": "ru",
+          "lang": language,
           "id": id,
           "department": department
         }
@@ -35,8 +39,7 @@ const PropertyPage = () => {
     })
       .then(res => res.json())
       .then(data => setProperty(data.result));
-  }, [department, id]);
-
+  }, [department, id, language]);
 
   return (
     <main className='Main Main-propertyPage'>
@@ -126,7 +129,7 @@ const PropertyPage = () => {
                         property.facilities.map(facility => (
                           <li key={facility["id"]} className="PropertyCharacteristic PropertyCharacteristics_item">
                             <FontAwesomeIcon icon={faAngleRight} />
-                            <span className="PropertyCharacteristic_value">{facility["name_ru"]}</span>
+                            <span className="PropertyCharacteristic_value">{facility[`name_${language}`]}</span>
                           </li>
                         ))
                       }

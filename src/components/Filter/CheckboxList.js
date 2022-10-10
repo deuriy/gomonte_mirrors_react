@@ -1,6 +1,7 @@
+import { t } from 'i18next';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { CustomToggle } from '../CustomToggle';
+import { FilterMenuTrigger } from './FilterMenuTrigger';
 
 const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setFieldFunc, ...rest }) => {
   valueOffset = Number(valueOffset);
@@ -25,7 +26,7 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
 
   return (
     <Dropdown className="FilterElement Filter_item" {...rest}>
-      <Dropdown.Toggle as={CustomToggle} className="FilterMenuTrigger">
+      <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">
         <span className='FilterMenuTrigger_labelText'>{getFieldLabel()}</span>
       </Dropdown.Toggle>
       <Dropdown.Menu className="FilterElementDropdown FilterElement_dropdown FilterElementDropdown-checkboxList">
@@ -34,7 +35,7 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
             values.map((item, idx) => (
               <div key={idx} className="Checkbox CheckboxList_item">
                 <input className="Checkbox_input" type="checkbox" name={name} value={idx + valueOffset} id={`id_${name}_${idx + valueOffset}`} checked={field.includes(idx + valueOffset)} onChange={onChangeField} />
-                <label className="Checkbox_label" htmlFor={`id_${name}_${idx + valueOffset}`}>{item}</label>
+                <label className="Checkbox_label" htmlFor={`id_${name}_${idx + valueOffset}`}>{t(`${item}`)}</label>
               </div>
             ))
           }

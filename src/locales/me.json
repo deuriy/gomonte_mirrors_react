@@ -1,4 +1,148 @@
 {
-  "rent": "Аренда",
-  "sale": "Продажа"
+  "menu": {
+    "rent": "Кирија",
+    "property": "Имовина",
+    "about": "О томе"
+  },
+  "filter": {
+    "department": {
+      "buy": "Купи",
+      "rent": "Кирија"
+    },
+    "estate_type": {
+      "residental_property": "Становање",
+      "flats": "Станови",
+      "houses": "Куће/Виле",
+      "landplots": "Земљишта",
+      "commercial": "Комерцијални"
+    },
+    "cities": {
+      "label": "Grad",
+      "budva": "Budva",
+      "bechichi": "Bečići",
+      "bar": "Bar",
+      "zhabliak": "Žabljak",
+      "kotor": "Kotor",
+      "krimovica": "Krimovica",
+      "lastva": "Lastva",
+      "markovichi": "Markovići",
+      "petrovac": "Petrovac",
+      "podgorica": "Podgorica",
+      "przhno": "Pržno",
+      "rafailovichi": "Rafailovići",
+      "rezhevichi": "Reževići",
+      "risan": "Risan",
+      "sveti_stefan": "Sveti Stefan",
+      "tivat": "Tivat",
+      "herzeg_novi": "Herceg Novi",
+      "cetinje": "Cetinje",
+      "sutomore": "Sutomore",
+      "krashichi": "Krasići",
+      "stoliv": "Stoliv",
+      "seoce": "Seoce",
+      "buljarica": "Buljarica",
+      "blizikuce": "Blizikuće",
+      "radanovici": "Radanovići",
+      "kamenovo": "Kamenovo",
+      "dobrota": "Dobrota",
+      "lushtica": "Luštica",
+      "lapchichi": "Lapcici",
+      "dzhenovichi": "Djenovici",
+      "ulcin": "Ulcinj",
+      "bigovo": "Bigovo",
+      "strp": "Strp",
+      "dobra_voda": "Dobra Voda"
+    },
+    "price": {
+      "label": "Цена",
+      "min": "Цена од",
+      "max": "Цена до"
+    },
+    "footage": {
+      "label": "Квадрат",
+      "min": "од (м²)",
+      "max": "до (м²)"
+    },
+    "bedrooms_number": {
+      "label": "Број спаваћих соба",
+      "studio": "Студио",
+      "one": "1 спаваћа соба",
+      "two": "2 спаваће собе",
+      "three": "3 спаваће собе",
+      "four": "4 спаваће собе",
+      "more": "и још"
+    },
+    "property_code": "Шифра имовине",
+    "search": "Претрага"
+  },
+  "mobile_filter": {
+    "label": "Филтери",
+    "all_estate_types": "Све врсте",
+    "all_cities": "Сви градови",
+    "bedrooms_number": "Број спаваћих соба",
+    "all": "Све",
+    "clear": "Јасно",
+    "search": "Претрага"
+  },
+  "services": {
+    "rent": {
+      "title": "Кирија",
+      "subtitle": "Комфорни апартмани <1/>Црна Гора",
+      "description": "За живот и рекреацију на обали Јадранског мора",
+      "button": "Све опције изнајмљивања"
+    },
+    "sale": {
+      "title": "Сале",
+      "description": "Само свјеже и релевантне понуде за продају некретнина у Црној Гори са различитим цијенама за свачији укус. Професионални приступ и правна подршка.",
+      "button": "Све опције продаје"
+    }
+  },
+  "hero_section": {
+    "title": "Издавање и продаја станова и кућа у Црној Гори",
+    "description": "Најбоље понуде за продају некретнина у Црној Гори са различитим ценама за свачији укус. Приликом куповине некретнине добијате боравишну дозволу на поклон.",
+    "buttons": {
+      "rent": "Кирија",
+      "sale": "Купи"
+    }
+  },
+  "best_offers": {
+    "title": "Најбоље понуде",
+    "button": "Покажи све"
+  },
+  "property_card": {
+    "show": "Прикажи",
+    "price": "Цена",
+    "per_square": "По квадратном метру"
+  },
+  "footer": {
+    "phone": "Телефон",
+    "information": "Информације",
+    "payment_methods": "Начини плаћања",
+    "copyright": "© 2020 МонтеСале сва права задржана"
+  },
+  "about_page": {
+    "title": "Трудимо се и развијамо се",
+    "text": "Наша компанија МонтеСале увијек се труди да у највећој могућој мјери задовољи потребе сваког клијента који долази у Црну Гору. Наши запослени имају велико искуство у пословима са некретнинама, правним пословима, имиграцији, као и пружању разних врста услуга, које можете пронаћи на нашем сајту. Увијек ћемо радо помоћи у свим питањима везаним за ваш боравак на територији Црне Горе. Чекамо вас у овој прелепој топлој и сунчаној земљи",
+    "phone": "Контакт телефон"
+  },
+  "properties_pages": {
+    "rent": "Кирија",
+    "sale": "Сале"
+  },
+  "not_found": {
+    "title": "Погледајте тренутне понуде",
+    "description": "Нема пронађених некретнина. Покушајте поново са различитим опцијама филтера"
+  },
+  "property_page": {
+    "more_materials": "Више материјала",
+    "location_and_cost": "Локација и цена",
+    "bedrooms_number": "Број спаваћих соба",
+    "city": "град",
+    "bedrooms": "Спаваће собе",
+    "price_per_year": "годишње",
+    "bathrooms": "Купатила",
+    "characteristics": "Карактеристике",
+    "property_description": "Опис некретнине",
+    "similar_objects": "Слични објекти"
+  }
 }

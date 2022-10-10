@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+const FilterMenuTrigger = React.forwardRef(({ children, onClick }, ref) => (
   <button type="button" className='FilterMenuTrigger' ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -11,4 +11,4 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   </button>
 ));
 
-export { CustomToggle };
+export { FilterMenuTrigger };

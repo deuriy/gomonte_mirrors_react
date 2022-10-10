@@ -1,3 +1,5 @@
+import { t } from "i18next";
+
 const RadioBtnTabs = ({ name, values, field, setFieldFunc, onChangeFunc = () => { }, ...rest }) => {
   function onChangeField(event) {
     setFieldFunc(event.target.value);
@@ -14,7 +16,7 @@ const RadioBtnTabs = ({ name, values, field, setFieldFunc, onChangeFunc = () => 
           Object.entries(values).map(item => (
             <li key={item[0]} className="RadioBtnTab RadioBtnTabs_item">
               <input className="RadioBtnTab_input" type="radio" name={name} value={item[0]} id={`${name}_${item[0]}`} checked={field === item[0] ? true : false} onChange={onChangeField} />
-              <label className="RadioBtnTab_label" htmlFor={`${name}_${item[0]}`}>{item[1]}</label>
+              <label className="RadioBtnTab_label" htmlFor={`${name}_${item[0]}`}>{t(`${item[1]}`)}</label>
             </li>
           ))
         }

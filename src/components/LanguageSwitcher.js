@@ -1,17 +1,47 @@
+import { i18n } from '../i18n';
+
+import Dropdown from 'react-bootstrap/Dropdown';
+
+import { useContext, useState } from 'react';
+import { LanguageSwitcherToggleBtn } from './LanguageSwitcherToggleBtn';
+
+import { LanguageContext } from './Provider';
+
+import { useLocalStorage } from './../hooks/use-localstorage';
+
+import { langs } from '../data/langs';
+
 const LanguageSwitcher = () => {
+  // const [activeLang, setActiveLang] = useState(i18n.language);
+  const [activeLang, setActiveLang] = useLocalStorage('language', 'ru');
+  const { language, setLanguage } = useContext(LanguageContext);
+
+  function setLang(lang) {
+    i18n.changeLanguage(lang);
+    setActiveLang(lang);
+    setLanguage(lang);
+
+    console.log('Lang from lang switcher component');
+    console.log(lang);
+  }
+
   return (
-    <div className="LanguageSwitcher Header_languageSwitcher dropdown hidden-xlMinus">
-      <a className="Language LanguageSwitcher_toggle dropdown-toggle" href="#" role="button" id="languageSwitcherLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <img className="Language_icon" src="/img/lang/desktop/lang-ru.webp" />
-        <span className="Language_text">Русский</span>
-      </a>
-      <ul className="LanguageSwitcher_list dropdown-menu" aria-labelledby="languageSwitcherLink">
-        <li><a className="LanguageSwitcher_item dropdown-item" href="#"><img className="Language_icon" src="/img/lang/desktop/lang-me.webp" /><span className="Language_text">Crnogorski</span></a></li>
-        <li><a className="LanguageSwitcher_item dropdown-item" href="#"><img className="Language_icon" src="/img/lang/desktop/lang-ru.webp" /><span className="Language_text">Русский</span></a></li>
-        <li><a className="LanguageSwitcher_item dropdown-item" href="#"><img className="Language_icon" src="/img/lang/desktop/lang-en.webp" /><span className="Language_text">English</span></a></li>
-        <li><a className="LanguageSwitcher_item dropdown-item" href="#"><img className="Language_icon" src="/img/lang/desktop/lang-tr.webp" /><span className="Language_text">Turkish</span></a></li>
-      </ul>
-    </div>
+    <Dropdown className="LanguageSwitcher Header_languageSwitcher hidden-xlMinus" onSelect={setLang}>
+      <Dropdown.Toggle as={LanguageSwitcherToggleBtn} className="Language LanguageSwitcher_toggle" id="languageSwitcherLink">
+        <img className="Language_icon" src={langs[language]['icon']} alt="" />
+        <span className="Language_text">{langs[language]['label']}</span>
+      </Dropdown.Toggle>
+      <Dropdown.Menu className="LanguageSwitcher_list">
+        {
+          Object.entries(langs).map(item => (
+            <Dropdown.Item key={item[0]} className="LanguageSwitcher_item" eventKey={item[0]}>
+              <img className="Language_icon" src={item[1]["icon"]} alt="" />
+              <span className="Language_text">{item[1]["label"]}</span>
+            </Dropdown.Item>
+          ))
+        }
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 
