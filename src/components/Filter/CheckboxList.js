@@ -21,7 +21,7 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
   function getFieldLabel() {
     if (!field.length) return defaultLabel;
 
-    return defaultLabel + ': ' + field.map(item => values[item - valueOffset]).join(', ');
+    return defaultLabel + ': ' + field.map(item => t(`${values[item - valueOffset]}`)).join(', ');
   }
 
   return (
