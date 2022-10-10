@@ -2,7 +2,7 @@ import { i18n } from '../i18n';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { LanguageSwitcherToggleBtn } from './LanguageSwitcherToggleBtn';
 
 import { LanguageContext } from './Provider';
@@ -12,7 +12,6 @@ import { useLocalStorage } from './../hooks/use-localstorage';
 import { langs } from '../data/langs';
 
 const LanguageSwitcher = () => {
-  // const [activeLang, setActiveLang] = useState(i18n.language);
   const [activeLang, setActiveLang] = useLocalStorage('language', 'ru');
   const { language, setLanguage } = useContext(LanguageContext);
 
@@ -20,9 +19,6 @@ const LanguageSwitcher = () => {
     i18n.changeLanguage(lang);
     setActiveLang(lang);
     setLanguage(lang);
-
-    console.log('Lang from lang switcher component');
-    console.log(lang);
   }
 
   return (

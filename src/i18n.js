@@ -26,7 +26,7 @@ i18n
   .init({
     resources,
     lng: JSON.parse(localStorage.getItem("language")),
-    fallbackLng: "ru",
+    fallbackLng: "me",
 
     interpolation: {
       escapeValue: false

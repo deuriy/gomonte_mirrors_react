@@ -1,6 +1,4 @@
 
-import { useContext } from 'react';
-
 import { Link } from 'react-router-dom';
 
 import { Trans, useTranslation } from 'react-i18next';
@@ -8,14 +6,11 @@ import { Trans, useTranslation } from 'react-i18next';
 import { Banner } from "../components/Banner";
 import { FeaturedProperties } from "../components/FeaturedProperties";
 
-import { LanguageContext } from '../components/Provider';
-
 import bannerBg from '../assets/img/budva-bg.webp';
 import rentImage from '../assets/img/header-rent-icon-1.webp';
 
 const HomePage = () => {
   const { t } = useTranslation();
-  const { language, setLanguage } = useContext(LanguageContext);
 
   return (
     <main className="Main">
