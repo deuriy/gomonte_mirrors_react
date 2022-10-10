@@ -66,8 +66,10 @@
     "bedrooms_number": {
       "label": "Yatak odası sayısı",
       "studio": "Stüdyo",
-      "one": "yatak odası",
-      "plural": "yatak odaları",
+      "one": "1 yatak odası",
+      "two": "2 yatak odası",
+      "three": "3 yatak odası",
+      "four": "4 yatak odası",
       "more": "ve dahası"
     },
     "property_code": "Nesne kodu",

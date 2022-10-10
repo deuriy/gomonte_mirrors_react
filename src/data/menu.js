@@ -1,17 +1,15 @@
-import { i18n } from "../i18n";
-
 const menu = [
   {
     "path": "/rent",
-    "text": i18n.t('menu.rent')
+    "text": 'menu.rent'
   },
   {
     "path": "/sale",
-    "text": i18n.t('menu.property')
+    "text": 'menu.property'
   },
   {
     "path": "/about",
-    "text": i18n.t('menu.about')
+    "text": 'menu.about'
   },
 ];
 

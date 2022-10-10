@@ -66,8 +66,10 @@
     "bedrooms_number": {
       "label": "Bedrooms number",
       "studio": "Studio",
-      "one": "bedroom",
-      "plural": "bedrooms",
+      "one": "1 bedroom",
+      "two": "2 bedrooms",
+      "three": "3 bedrooms",
+      "four": "4 bedrooms",
       "more": "and more"
     },
     "property_code": "Property code",

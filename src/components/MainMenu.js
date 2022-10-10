@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { Link } from "react-router-dom";
 
 const MainMenu = ({ items }) => {
@@ -7,7 +8,7 @@ const MainMenu = ({ items }) => {
         {
           items.map(item => (
             <li key={item["path"]} className="MainMenu_item">
-              <Link className="MainMenu_link" to={item["path"]}>{item["text"]}</Link>
+              <Link className="MainMenu_link" to={item["path"]}>{t(`${item["text"]}`)}</Link>
             </li>
           ))
         }

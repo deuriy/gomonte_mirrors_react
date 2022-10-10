@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 import { FilterMenuTrigger } from './FilterMenuTrigger';
@@ -34,7 +35,7 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
             values.map((item, idx) => (
               <div key={idx} className="Checkbox CheckboxList_item">
                 <input className="Checkbox_input" type="checkbox" name={name} value={idx + valueOffset} id={`id_${name}_${idx + valueOffset}`} checked={field.includes(idx + valueOffset)} onChange={onChangeField} />
-                <label className="Checkbox_label" htmlFor={`id_${name}_${idx + valueOffset}`}>{item}</label>
+                <label className="Checkbox_label" htmlFor={`id_${name}_${idx + valueOffset}`}>{t(`${item}`)}</label>
               </div>
             ))
           }

@@ -1,6 +1,6 @@
 import i18n, { t } from 'i18next';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 
 import { Filter } from "../components/Filter";
@@ -8,16 +8,21 @@ import { PropertyCard } from "../components/PropertyCard";
 import { Pagination } from '../components/Pagination';
 import { NotFound } from '../components/NotFound';
 
+import { LanguageContext } from '../components/Provider';
+
 const PropertiesPage = () => {
   let [searchParams] = useSearchParams();
 
-  let propsRef = useRef(null);
+  let propertiesRef = useRef(null);
 
   let location = useLocation();
   let pathname = location.pathname;
 
-  let lang = i18n.language;
-  console.log(lang);
+  // let lang = i18n.language;
+  // console.log(lang);
+
+  const { language, setLanguage } = useContext(LanguageContext);
+
   let department = pathname.substring(1) || 'sale';
 
   let estateType = searchParams.get('estate_type') || 'flats';
@@ -51,8 +56,8 @@ const PropertiesPage = () => {
 
   useEffect(() => {
     loadProperties();
-    console.log('lang');
-  }, [isLoaded, department, lang]);
+    console.log('language');
+  }, [isLoaded, department, language]);
 
   function loadProperties() {
     fetch('http://0.0.0.0:8000/rpc/', {
@@ -65,7 +70,7 @@ const PropertiesPage = () => {
         "id": "fj45hsg",
         "method": "get_real_estate_properties",
         "params": {
-          "lang": lang,
+          "lang": language,
           "department": department,
           "estate_type": estateType,
           "cities": cities,
@@ -85,7 +90,7 @@ const PropertiesPage = () => {
         setTotalPages(data.result.pagination.total_pages);
 
         setLoading(true);
-        propsRef.current.scrollIntoView();
+        propertiesRef.current.scrollIntoView();
       })
       .catch(err => {
         console.warn(err);
@@ -94,7 +99,7 @@ const PropertiesPage = () => {
 
   return (
     <main className="Main">
-      <div className="PropertiesPage" ref={propsRef}>
+      <div className="PropertiesPage" ref={propertiesRef}>
         <div className="container">
           {title && (
             <div className="row">

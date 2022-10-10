@@ -19,6 +19,8 @@ const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
   let [searchParams] = useSearchParams();
   let navigate = useNavigate();
 
+  // let [citiesAll, setCitiesAll] = useState(allCities);
+
   let [department, setDepartment] = useState(departmentValue);
   let [disabledDepartment, setDisabledDepartment] = useState([]);
   let [estateType, setEstateType] = useState(params.estateType);
