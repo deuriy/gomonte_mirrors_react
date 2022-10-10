@@ -5,61 +5,69 @@
     "about": "О Нас"
   },
   "filter": {
-    "action_type": {
+    "department": {
       "buy": "Купить",
       "rent": "Снять"
     },
-    "property_type": {
+    "estate_type": {
       "residental_property": "Жилая недвижимость",
-      "apartment": "Квартира",
-      "house_or_villa": "Дом/Вилла",
-      "land_plot": "Земельный участок",
+      "flats": "Квартира",
+      "houses": "Дом/Вилла",
+      "landplots": "Земельный участок",
       "commercial": "Коммерческая"
     },
     "cities": {
       "label": "Город",
-      "bar": "Бар",
-      "bechichi": "Бечичи",
-      "bigovo": "Бигово",
-      "bizikuce": "Bizikuce",
       "budva": "Будва",
-      "buljarica": "Buljarica",
-      "dobrota": "Доброта",
-      "drobni_pesak": "Дробни песак",
-      "dzhenovichi": "Дженовичи",
-      "herzeg_novi": "Херцег Нови",
-      "kamenovo": "Kamenovo",
+      "bechichi": "Бечичи",
+      "bar": "Бар",
+      "zhabliak": "Жабляк",
       "kotor": "Котор",
-      "krashichi": "Крашичи",
       "krimovica": "Кримовица",
       "lastva": "Ластва",
-      "lepetane": "Лепетане",
-      "lushtica": "Луштица",
+      "markovichi": "Марковичи",
       "petrovac": "Петровац",
       "podgorica": "Подгорица",
-      "prchan": "Прчан",
-      "przhno_milocher": "Пржно-Милочер",
-      "radanovici": "Radanovici",
+      "przhno": "Пржно",
       "rafailovichi": "Рафаиловичи",
       "rezhevichi": "Режевичи",
       "risan": "Рисан",
-      "stoliv": "Stoliv",
-      "sutomore": "Sutomore",
       "sveti_stefan": "Свети Стефан",
       "tivat": "Тиват",
+      "herzeg_novi": "Херцег Нови",
+      "cetinje": "Цетинье",
+      "sutomore": "Сутоморе",
+      "krashichi": "Крашичи",
+      "stoliv": "Столив",
+      "seoce": "Сеоце",
+      "buljarica": "Бульярица",
+      "blizikuce": "Близекуче",
+      "radanovici": "Радановичи",
+      "kamenovo": "Каменово",
+      "dobrota": "Доброта",
+      "lushtica": "Луштица",
+      "lapchichi": "Лапчичи",
+      "dzhenovichi": "Дженовичи",
       "ulcin": "Ульцин",
-      "zhabliak": "Жабляк"
+      "bigovo": "Бигово",
+      "strp": "Стрп",
+      "dobra_voda": "Добра Вода"
     },
     "price": {
       "label": "Цена",
-      "price_from": "Цена от",
-      "price_to": "Цена до"
+      "min": "Цена от",
+      "max": "Цена до"
+    },
+    "footage": {
+      "label": "Площадь",
+      "min": "от (м²)",
+      "max": "до (м²)"
     },
     "bedrooms_number": {
       "label": "К-во спален",
       "studio": "Студия",
-      "bedrooms_one": "спальня",
-      "bedrooms_plural": "спальни",
+      "one": "спальня",
+      "plural": "спальни",
       "more": "и более"
     },
     "property_code": "Код объекта",
@@ -67,7 +75,7 @@
   },
   "mobile_filter": {
     "label": "Фильтры",
-    "all_property_types": "Все виды",
+    "all_estate_types": "Все виды",
     "all_cities": "Все города",
     "bedrooms_number": "Количество спален",
     "all": "Все",
@@ -114,6 +122,14 @@
     "title": "Мы стремимся и развиваемся",
     "text": "Наша компания MonteSale всегда старается максимально удовлетворить запросы любого клиента, приезжающего в Черногорию. Наши сотрудники имеют большой опыт работы в недвижимости, юридических вопросах, иммиграции, а также предоставлению различных видов услуг, с которыми Вы можете ознакомиться на нашем сайте. Всегда будем рады оказать помощь в любых вопросах, касающихся Вашего нахождения на территории Черногории. Ждем Вас в этой красивой теплой и солнечной стране.",
     "phone": "Телефон для связи"
+  },
+  "properties_pages": {
+    "rent": "Аренда",
+    "sale": "Продажа"
+  },
+  "not_found": {
+    "title": "Посмотрите актуальные предложения",
+    "description": "Не найдено объектов недвижимости. Пожалуйста попробуйте снова с другими параметрами фильтрации."
   },
   "property_page": {
     "more_materials": "Больше материалов",
