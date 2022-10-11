@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Pagination = ({ params, currentPage = 1, totalPages = 1, setCurrentPage, setLoading, ...rest }) => {
+const Pagination = ({ params, currentPage = 1, totalPages = 1, setCurrentPage, setLoading, ...props }) => {
   let [searchParams, setSearchParams] = useSearchParams();
 
   function onClickHandler(value) {
@@ -46,7 +46,7 @@ const Pagination = ({ params, currentPage = 1, totalPages = 1, setCurrentPage, s
   }
 
   return (
-    <div className="Pagination" {...rest}>
+    <div className="Pagination" {...props}>
       <ul className="Pagination_list">
         <li className="Pagination_item">
           <button type="button" className="Pagination_prevBtn" onClick={() => onClickHandler(currentPage - 1)} disabled={currentPage === 1}>

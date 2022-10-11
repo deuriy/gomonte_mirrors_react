@@ -2,7 +2,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { FilterMenuTrigger } from './FilterMenuTrigger';
 
-const NumberRange = ({ nameFrom = "min_number", nameTo = "max_number", valueFrom, valueTo, labelFrom, labelTo, setValueFrom, setValueTo, label, ...rest }) => {
+const NumberRange = ({ nameFrom = "min_number", nameTo = "max_number", valueFrom, valueTo, labelFrom, labelTo, setValueFrom, setValueTo, label, ...props }) => {
   function onChangeValueFrom(event) {
     setValueFrom(event.target.value);
   }
@@ -12,7 +12,7 @@ const NumberRange = ({ nameFrom = "min_number", nameTo = "max_number", valueFrom
   }
 
   return (
-    <Dropdown className="FilterElement Filter_item" {...rest}>
+    <Dropdown className="FilterElement Filter_item" {...props}>
       <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">{label}</Dropdown.Toggle>
       <Dropdown.Menu className="FilterElementDropdown FilterElement_dropdown">
         <div className="FilterElementDropdown_fields">

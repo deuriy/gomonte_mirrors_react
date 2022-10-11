@@ -1,6 +1,6 @@
 import { t } from "i18next";
 
-const RadioBtnTabs = ({ name, values, field, setFieldFunc, onChangeFunc = () => { }, ...rest }) => {
+const RadioBtnTabs = ({ name, values, field, setFieldFunc, onChangeFunc = () => { }, ...props }) => {
   function onChangeField(event) {
     setFieldFunc(event.target.value);
 
@@ -10,7 +10,7 @@ const RadioBtnTabs = ({ name, values, field, setFieldFunc, onChangeFunc = () => 
   }
 
   return (
-    <div className='RadioBtnTabs' {...rest}>
+    <div className='RadioBtnTabs' {...props}>
       <ul className='RadioBtnTabs_list'>
         {
           Object.entries(values).map(item => (

@@ -12,7 +12,7 @@ import { useLocalStorage } from './../hooks/use-localstorage';
 import { langs } from '../data/langs';
 
 const LanguageSwitcher = () => {
-  const [activeLang, setActiveLang] = useLocalStorage('language', 'ru');
+  const [activeLang, setActiveLang] = useLocalStorage('language', 'me');
   const { language, setLanguage } = useContext(LanguageContext);
 
   function setLang(lang) {

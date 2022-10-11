@@ -3,7 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { FilterMenuTrigger } from './FilterMenuTrigger';
 
-const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setFieldFunc, ...rest }) => {
+const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setFieldFunc, ...props }) => {
   valueOffset = Number(valueOffset);
 
   function onChangeField(event) {
@@ -25,7 +25,7 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
   }
 
   return (
-    <Dropdown className="FilterElement Filter_item" {...rest}>
+    <Dropdown className="FilterElement Filter_item" {...props}>
       <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">
         <span className='FilterMenuTrigger_labelText'>{getFieldLabel()}</span>
       </Dropdown.Toggle>
