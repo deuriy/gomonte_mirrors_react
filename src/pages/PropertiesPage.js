@@ -1,4 +1,4 @@
-import i18n, { t } from 'i18next';
+import { t } from 'i18next';
 
 import { useState, useEffect, useRef, useContext } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
@@ -18,10 +18,7 @@ const PropertiesPage = () => {
   let location = useLocation();
   let pathname = location.pathname;
 
-  // let lang = i18n.language;
-  // console.log(lang);
-
-  const { language, setLanguage } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
 
   let department = pathname.substring(1) || 'sale';
 

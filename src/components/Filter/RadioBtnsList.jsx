@@ -3,13 +3,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { FilterMenuTrigger } from './FilterMenuTrigger';
 
-const RadioBtnsList = ({ name, values, field, setFieldFunc, disabledValues = [], ...rest }) => {
+const RadioBtnsList = ({ name, values, field, setFieldFunc, disabledValues = [], ...props }) => {
   function onChangeField(event) {
     setFieldFunc(event.target.value);
   }
 
   return (
-    <Dropdown className="FilterElement Filter_item" {...rest}>
+    <Dropdown className="FilterElement Filter_item" {...props}>
       <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">{t(`${values[field]}`)}</Dropdown.Toggle>
       <Dropdown.Menu className="FilterElementDropdown FilterElement_dropdown">
         <div className='RadioButtonList'>

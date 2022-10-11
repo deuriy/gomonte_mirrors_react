@@ -12,7 +12,7 @@ import { SimilarProperties } from '../components/SimilarProperties';
 import { t } from 'i18next';
 
 const PropertyPage = () => {
-  const { language, setLanguage } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
 
   let [property, setProperty] = useState({});
   let { id } = useParams();

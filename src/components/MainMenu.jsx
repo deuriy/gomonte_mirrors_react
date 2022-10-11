@@ -1,5 +1,7 @@
 import { t } from "i18next";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const activeLink = ({ isActive }) => isActive ? 'MainMenu_link MainMenu_link-active' : 'MainMenu_link';
 
 const MainMenu = ({ items }) => {
   return (
@@ -8,7 +10,7 @@ const MainMenu = ({ items }) => {
         {
           items.map(item => (
             <li key={item["path"]} className="MainMenu_item">
-              <Link className="MainMenu_link" to={item["path"]}>{t(`${item["text"]}`)}</Link>
+              <NavLink className={activeLink} to={item["path"]}>{t(`${item["text"]}`)}</NavLink>
             </li>
           ))
         }
