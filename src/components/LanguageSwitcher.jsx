@@ -7,7 +7,7 @@ import { LanguageSwitcherToggleBtn } from './LanguageSwitcherToggleBtn';
 
 import { LanguageContext } from './Provider';
 
-import { useLocalStorage } from './../hooks/use-localstorage';
+import { useLocalStorage } from '../hooks/use-localstorage';
 
 import { langs } from '../data/langs';
 
