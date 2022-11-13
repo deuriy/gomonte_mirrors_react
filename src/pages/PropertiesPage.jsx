@@ -22,7 +22,7 @@ const PropertiesPage = () => {
 
   let department = pathname.substring(1) || 'sale';
 
-  let estateType = searchParams.get('estate_type') || 'flats';
+  let estateType = searchParams.get('estate_type') || 1;
   let cities = searchParams.getAll('cities') || [];
   let bedroomsNum = searchParams.getAll('bedrooms_num') || [];
   let priceMin = Number(searchParams.get('price_min')) || 100;
@@ -57,7 +57,7 @@ const PropertiesPage = () => {
   }, [isLoaded, department, language]);
 
   function loadProperties() {
-    fetch('http://0.0.0.0:8000/rpc/', {
+    fetch(process.env.REACT_APP_BACKEND_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -5,10 +5,12 @@ import { PropertyCard } from './PropertyCard';
 import { t } from 'i18next';
 
 const FeaturedProperties = (props) => {
+  console.log(process.env.REACT_APP_BACKEND_API_URL);
+
   let [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    fetch('http://0.0.0.0:8000/rpc/', {
+    fetch(process.env.REACT_APP_BACKEND_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -20,13 +22,16 @@ const FeaturedProperties = (props) => {
         "params": {
           "lang": "en",
           "department": "sale",
-          "estate_type": "flats",
+          "estate_type": 1,
           "count": 4
         }
       })
     })
       .then(res => res.json())
-      .then(data => setProperties(data.result.records));
+      .then(data => {
+        console.log(data);
+        setProperties(data.result.records);
+      });
   }, []);
 
   return (

@@ -19,7 +19,7 @@ const Header = () => {
 
           <MainMenu items={menu} />
 
-          <Phone number="+382 67 214 405" />
+          <Phone number={process.env.REACT_APP_PHONE} />
 
           <LanguageSwitcher />
         </div>

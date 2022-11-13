@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Phone = ({ number }) => {
   return (
     <a className="Phone Header_phone" href={`tel:${number}`}>
-      {/* <i className="fa fa-phone hidden-xlMinus"></i> */}
       <FontAwesomeIcon icon={faPhone} className="hidden-xlMinus" />
       <span className="Phone_text">{number}</span>
     </a>

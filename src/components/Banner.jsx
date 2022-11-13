@@ -4,7 +4,7 @@ const Banner = (props) => {
   let bgImage = props.image || '';
 
   let params = {
-    estateType: "flats",
+    estateType: 1,
     cities: [],
     bedroomsNum: [],
     priceMin: 100,

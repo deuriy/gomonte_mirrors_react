@@ -21,7 +21,7 @@ const PropertyPage = () => {
   id = id.substring(1);
 
   useEffect(() => {
-    fetch('http://0.0.0.0:8000/rpc/', {
+    fetch(process.env.REACT_APP_BACKEND_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

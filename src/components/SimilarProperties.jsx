@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-import { PropertyCard } from '../components/PropertyCard'
+import { PropertyCard } from './PropertyCard'
 
 const SimilarProperties = (props) => {
   let [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    fetch('http://0.0.0.0:8000/rpc/', {
+    fetch(process.env.REACT_APP_BACKEND_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
