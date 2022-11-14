@@ -5,8 +5,6 @@ import { PropertyCard } from './PropertyCard';
 import { t } from 'i18next';
 
 const FeaturedProperties = (props) => {
-  console.log(process.env.REACT_APP_BACKEND_API_URL);
-
   let [properties, setProperties] = useState([]);
 
   useEffect(() => {
@@ -28,10 +26,7 @@ const FeaturedProperties = (props) => {
       })
     })
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setProperties(data.result.records);
-      });
+      .then(data => setProperties(data.result.records));
   }, []);
 
   return (
