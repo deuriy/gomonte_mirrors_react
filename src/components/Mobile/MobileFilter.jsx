@@ -1,13 +1,36 @@
-const MobileFilter = () => {
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
+import { faBars, faTimesCircle, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const MobileFilter = ({ show, setShowFilter, setShowSidebar }) => {
+  const handleCloseFilter = () => setShowFilter(false);
+  const handleShowSidebar = () => {
+    setShowFilter(false);
+    setShowSidebar(true);
+  };
+
   return (
-    <div className="MobileFilter offcanvas offcanvas-top" id="MobileFilter">
+    <Offcanvas className="MobileFilter" show={show} placement="top">
       <div className="MobileFilter_header">
-        <button className="MenuHamburger MobileFilter_menuHamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#MobileSidebar" aria-controls="MobileSidebar"><i className="fa fa-bars"></i></button>
-        <button className="MobileFilter_closeBtn" type="button" data-bs-dismiss="offcanvas" aria-label="Close"><i className="fa fa-times-circle"></i></button>
+        <button className="MenuHamburger MobileFilter_menuHamburger" type="button" onClick={handleShowSidebar}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+        <button className="MobileFilter_closeBtn" type="button" onClick={handleCloseFilter}>
+          <FontAwesomeIcon icon={faTimesCircle} />
+        </button>
       </div>
       <div className="MobileFilter_body">
         <form className="MobileFilter_form" action="#">
           <div className="MobileFilter_items">
+            <div className="MobileFilter_item">
+              <select className="Select" name="property_type">
+                <option value="apartments">Квартиру</option>
+                <option value="villa">Дом/Вилла</option>
+                <option value="land">Земельный участок</option>
+                <option value="commercial">Коммерческую нед.</option>
+              </select>
+            </div>
             <div className="MobileFilter_item">
               <div className="Switches">
                 <div className="Switch Switches_item">
@@ -20,7 +43,7 @@ const MobileFilter = () => {
                 </div>
               </div>
             </div>
-            <div className="MobileFilter_item" data-dependent-field="action_type">
+            {/* <div className="MobileFilter_item" data-dependent-field="action_type">
               <div className="Switches">
                 <div className="Switch Switches_item">
                   <input className="Switch_input" type="radio" name="period" value="year" id="year" defaultChecked />
@@ -35,16 +58,7 @@ const MobileFilter = () => {
                   <label className="Switch_label" htmlFor="daily">Посуточно</label>
                 </div>
               </div>
-            </div>
-            <div className="MobileFilter_item">
-              <select className="Select" name="property_type">
-                <option value="all">Все виды</option>
-                <option value="apartments">Квартиру</option>
-                <option value="villa">Дом/Вилла</option>
-                <option value="land">Земельный участок</option>
-                <option value="commercial-premises">Коммерческую нед.</option>
-              </select>
-            </div>
+            </div> */}
             <div className="MobileFilter_item">
               <select className="Select" name="city">
                 <option value="all">Все города</option>
@@ -117,11 +131,14 @@ const MobileFilter = () => {
           </div>
           <div className="MobileFilter_actions">
             <button className="MobileFilter_btn" type="reset">Очистить</button>
-            <button className="MobileFilter_btn" type="submit"><i className="fa fa-search"></i>Искать</button>
+            <button className="MobileFilter_btn" type="submit">
+              <FontAwesomeIcon icon={faSearch} />
+              <span>Искать</span>
+            </button>
           </div>
         </form>
       </div>
-    </div>
+    </Offcanvas>
   );
 }
 

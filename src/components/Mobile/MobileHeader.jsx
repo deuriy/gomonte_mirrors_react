@@ -1,16 +1,43 @@
 import { faBars, faCog } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRef, useEffect } from "react";
 
-const MobileHeader = () => {
+import { t } from 'i18next';
+
+const MobileHeader = ({ setShowSidebar, setShowFilter }) => {
+  const mobileHeaderRef = useRef(null);
+
+  function scrollHandler() {
+    if (window.pageYOffset > 82) {
+      mobileHeaderRef.current.classList.add('MobileHeader-visible');
+    } else {
+      mobileHeaderRef.current.classList.remove('MobileHeader-visible');
+    }
+  }
+
+  const handleShowFilter = () => {
+    if (window.innerWidth < 1200) {
+      setShowFilter(true);
+    }
+  };
+
+  const handleShowSidebar = () => setShowSidebar(true);
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandler);
+
+    return () => window.removeEventListener('scroll', scrollHandler);
+  }, []);
+
   return (
-    <div className="MobileHeader hidden-xlPlus">
-      <button className="MenuHamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#MobileSidebar" aria-controls="MobileSidebar">
+    <div className="MobileHeader hidden-xlPlus" ref={mobileHeaderRef}>
+      <button className="MenuHamburger" type="button" onClick={handleShowSidebar}>
         <FontAwesomeIcon icon={faBars} />
       </button>
-      <a className="FilterLink" href="#" role="button" data-bs-toggle="offcanvas" data-bs-target="#MobileFilter" aria-controls="MobileFilter">
+      <button className="FilterButton" type="button" onClick={handleShowFilter}>
         <FontAwesomeIcon icon={faCog} />
-        <span>Фильтры</span>
-      </a>
+        <span>{t('mobile_filter.label')}</span>
+      </button>
     </div>
   );
 }

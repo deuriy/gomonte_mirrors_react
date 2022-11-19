@@ -1,34 +1,32 @@
-import { Link } from 'react-router-dom';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MobileSidebar = () => {
+import { Langs } from './Langs';
+import { MobileMenu } from './MobileMenu';
+
+import { menu } from '../../data/menu';
+
+const MobileSidebar = ({ show, setShow }) => {
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
-      <button className="MenuHamburger Header_menuHamburger hidden-xlPlus" type="button" data-bs-toggle="offcanvas" data-bs-target="#MobileSidebar" aria-controls="MobileSidebar">
+      <button className="MenuHamburger Header_menuHamburger hidden-xlPlus" type="button" onClick={handleShow}>
         <FontAwesomeIcon icon={faBars} />
       </button>
-      <div className="MobileSidebar offcanvas offcanvas-start" id="MobileSidebar">
-        <button className="MobileSidebar_closeBtn" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+
+      <Offcanvas className="MobileSidebar" show={show} onHide={handleClose}>
+        <button className="MobileSidebar_closeBtn" type="button" onClick={handleClose}>
           <FontAwesomeIcon icon={faTimes} />
         </button>
 
-        <div className="MobileMenu MobileSidebar_menu">
-          <ul className="MobileMenu_menu">
-            <li className="MobileMenu_item MobileMenu_item-parent">
-              <Link className="MobileMenu_link" to="/rent">Аренда Жилья</Link>
-            </li>
-            <li className="MobileMenu_item">
-              <Link className="MobileMenu_link" to="/sale">Недвижимость</Link>
-            </li>
-            <li className="MobileMenu_item">
-              <Link className="MobileMenu_link" to="/contacts">О нас</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+        <Langs />
+
+        <MobileMenu items={menu} />
+      </Offcanvas>
     </>
   );
 }

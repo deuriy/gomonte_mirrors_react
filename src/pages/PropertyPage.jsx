@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-import { LanguageContext } from '../components/Provider';
+import { LanguageContext } from '../chunks/Provider';
+import { rpc } from '../chunks/JsonRpc';
 
 import Accordion from 'react-bootstrap/Accordion';
 
@@ -21,24 +22,11 @@ const PropertyPage = () => {
   id = id.substring(1);
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "jsonrpc": "2.0",
-        "id": "fj45hsg",
-        "method": "get_property_by_id",
-        "params": {
-          "lang": language,
-          "id": id,
-          "department": department
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(data => setProperty(data.result));
+    rpc.exec("get_property_by_id", {
+      "lang": language,
+      "id": id,
+      "department": department
+    }).then(data => setProperty(data.result));
   }, [department, id, language]);
 
   return (
@@ -119,7 +107,7 @@ const PropertyPage = () => {
                 </div>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey='1' className='AccordionPanel Accordion_item'>
+            <Accordion.Item eventKey="1" className="AccordionPanel Accordion_item">
               <Accordion.Header className='AccordionPanel_header'>{t('property_page.characteristics')}</Accordion.Header>
               <Accordion.Body className='AccordionPanel_body'>
                 {property.facilities
@@ -141,9 +129,9 @@ const PropertyPage = () => {
               </Accordion.Body>
             </Accordion.Item>
             {property.desc
-              ? <Accordion.Item eventKey='2' className='AccordionPanel Accordion_item'>
+              ? <Accordion.Item eventKey="2" className="AccordionPanel Accordion_item">
                 <Accordion.Header className='AccordionPanel_header'>{t('property_page.property_description')}</Accordion.Header>
-                <Accordion.Body className='AccordionPanel_body'>
+                <Accordion.Body className="AccordionPanel_body">
                   <div className="PropertyPage_description">
                     {
                       property.desc.split("\n").map((item, idx) => (

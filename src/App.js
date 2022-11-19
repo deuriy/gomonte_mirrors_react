@@ -10,7 +10,7 @@ import { PropertyPage } from './pages/PropertyPage';
 import { Layout } from './components/Layout';
 
 import { useLocalStorage } from './hooks/use-localstorage';
-import { LanguageContext } from './components/Provider';
+import { LanguageContext } from './chunks/Provider';
 
 import './i18n';
 

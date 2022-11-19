@@ -1,38 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import { PropertyCard } from './PropertyCard'
 
-const SimilarProperties = (props) => {
+import { LanguageContext } from '../chunks/Provider';
+import { rpc } from '../chunks/JsonRpc';
+
+const SimilarProperties = ({ id, department, title }) => {
   let [properties, setProperties] = useState([]);
+  const { language } = useContext(LanguageContext);
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "jsonrpc": "2.0",
-        "id": "fj45hsg",
-        "method": "get_similar_properties",
-        "params": {
-          "lang": "en",
-          "id": props.id,
-          "department": props.department
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(data => setProperties(data.result.records));
-  }, [props.id, props.department]);
+    rpc.exec("get_similar_properties", {
+      "lang": language,
+      "id": id,
+      "department": department
+    }).then(data => setProperties(data.result.records));
+  }, [id, department, language]);
 
   return (
     <div className="PropertyCards PropertyCards-similar PropertyPage_PropertyCards">
       <div className="container">
-        {props.title
+        {title
           ? <div className="row">
             <div className="col-12">
-              <h2 className="PropertyCards_title">{props.title}</h2>
+              <h2 className="PropertyCards_title">{title}</h2>
             </div>
           </div>
           : ''
