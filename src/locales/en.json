@@ -129,7 +129,7 @@
     "rent": "Rent",
     "sale": "Sale"
   },
-  "not_found": {
+  "no_results": {
     "title": "View current offers",
     "description": "No properties found. Please try again with different filter options."
   },
@@ -144,5 +144,10 @@
     "characteristics": "Characteristics",
     "property_description": "Property description",
     "similar_objects": "Similar Objects"
+  },
+  "not_found": {
+    "title": "Page not found",
+    "description": "The page may have been moved or may not exist.<1/>You can use the menu or return to the homepage",
+    "go_home_page": "Go to home page"
   }
 }

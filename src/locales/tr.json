@@ -129,7 +129,7 @@
     "rent": "Kiraya vermek",
     "sale": "Satış"
   },
-  "not_found": {
+  "no_results": {
     "title": "Mevcut teklifleri görüntüle",
     "description": "Emlak bulunamadı. Lütfen farklı filtre seçenekleriyle tekrar deneyin."
   },
@@ -144,5 +144,10 @@
     "characteristics": "özellikleri",
     "property_description": "Özellik Açıklaması",
     "similar_objects": "Benzer Nesneler"
+  },
+  "not_found": {
+    "title": "Sayfa bulunamadı",
+    "description": "Sayfa taşınmış veya kaldırılmış olabilir.<1/>Menüyü kullanabilir veya ana sayfaya geri dönebilirsiniz",
+    "go_home_page": "Ana sayfaya git"
   }
 }

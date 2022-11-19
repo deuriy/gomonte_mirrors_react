@@ -1,5 +1,107 @@
 .NotFound {
+  text-align: center;
+  overflow: hidden;
+
+  &_wrapper {
+    position: relative;
+    margin: 106px auto;
+
+    @media #{$mdMinus} {
+      max-width: 19rem;
+    }
+
+    @media #{$md} {
+      max-width: 38rem;
+      margin-top: 246px;
+      margin-bottom: 246px;
+    }
+
+    @media #{$xlPlus} {
+      max-width: 740px;
+      margin-top: 194px;
+      margin-bottom: 194px;
+    }
+  }
+
+  &_title,
+  &_description,
+  &_btn {
+    position: relative;
+  }
+
+  &_title,
+  &_description {
+    color: $grey;
+  }
+
   &_title {
-    margin-bottom: 16px;
+    margin-bottom: 7px;
+    font-weight: 700;
+
+    @media #{$mdMinus} {
+      font-size: 1.5rem;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    @media #{$mdPlus} {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    @media #{$xlPlus} {
+      margin-bottom: 26px;
+      font-size: 38px;
+    }
+  }
+
+  &_description {
+    line-height: 1.5;
+
+    @media #{$mdMinus} {
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    @media #{$mdPlus} {
+      margin-bottom: 3rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &_label {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    color: $grey3;
+    font-weight: 700;
+    z-index: -1;
+
+    @media #{$mdMinus} {
+      font-size: 10rem;
+    }
+
+    @media #{$mdPlus} {
+      top: -79px;
+      right: 13px;
+      font-size: 15rem;
+    }
+
+    @media #{$xlPlus} {
+      top: -5rem;
+      right: 0;
+      font-size: 19rem;
+    }
+  }
+
+  &_nonSmBr {
+    @media #{$mdMinus} {
+      display: none;
+    }
   }
 }

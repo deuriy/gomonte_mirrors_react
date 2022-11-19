@@ -6,7 +6,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { Filter } from "../components/Filter";
 import { PropertyCard } from "../components/PropertyCard";
 import { Pagination } from '../components/Pagination';
-import { NotFound } from '../components/NotFound';
+import { NoResults } from '../components/NoResults';
 
 import { LanguageContext } from '../chunks/Provider';
 import { rpc } from '../chunks/JsonRpc';
@@ -53,10 +53,7 @@ const PropertiesPage = () => {
   let title = (department === 'rent') ? t('properties_pages.rent') : t('properties_pages.sale');
 
   useEffect(() => {
-    loadProperties();
-  }, [isLoaded, department, language]);
-
-  function loadProperties() {
+    // loadProperties();
     rpc.exec("get_real_estate_properties", {
       "lang": language,
       "department": department,
@@ -76,7 +73,29 @@ const PropertiesPage = () => {
       setLoading(true);
       propertiesRef.current.scrollIntoView();
     }).catch(err => console.warn(err));
-  }
+  }, [isLoaded, department, language]);
+
+  // function loadProperties() {
+  //   rpc.exec("get_real_estate_properties", {
+  //     "lang": language,
+  //     "department": department,
+  //     "estate_type": estateType,
+  //     "cities": cities,
+  //     "bedrooms_num": bedroomsNum,
+  //     "price_min": priceMin,
+  //     "price_max": priceMax,
+  //     "footage_from": footageMin,
+  //     "footage_to": footageMax,
+  //     "page": currentPage
+  //   }).then(data => {
+  //     setProperties(data.result.records);
+  //     setCurrentPage(data.result.pagination.current_page);
+  //     setTotalPages(data.result.pagination.total_pages);
+
+  //     setLoading(true);
+  //     propertiesRef.current.scrollIntoView();
+  //   }).catch(err => console.warn(err));
+  // }
 
   return (
     <main className="Main">
@@ -117,7 +136,7 @@ const PropertiesPage = () => {
             ) : !isLoaded ? (
               <div>Loading data...</div>
             ) : (
-              <NotFound />
+              <NoResults />
             )}
           </div>
         </div>

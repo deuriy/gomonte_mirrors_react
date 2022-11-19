@@ -129,7 +129,7 @@
     "rent": "Кирија",
     "sale": "Сале"
   },
-  "not_found": {
+  "no_results": {
     "title": "Погледајте тренутне понуде",
     "description": "Нема пронађених некретнина. Покушајте поново са различитим опцијама филтера"
   },
@@ -144,5 +144,10 @@
     "characteristics": "Карактеристике",
     "property_description": "Опис некретнине",
     "similar_objects": "Слични објекти"
+  },
+  "not_found": {
+    "title": "Stranica nije pronađena",
+    "description": "Stranica se može pomerati ili izbrisati.<1/>Možete da koristite meni ili se vratite na glavni",
+    "go_home_page": "Idi na početnu stranicu"
   }
 }
