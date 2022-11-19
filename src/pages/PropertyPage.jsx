@@ -26,7 +26,10 @@ const PropertyPage = () => {
       "lang": language,
       "id": id,
       "department": department
-    }).then(data => setProperty(data.result));
+    }).then(data => {
+      setProperty(data.result);
+      document.title = `${process.env.REACT_APP_NAME} - ${data.result.title}`;
+    });
   }, [department, id, language]);
 
   return (

@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 
 import { Trans, useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 import { Banner } from "../components/Banner";
 import { FeaturedProperties } from "../components/FeaturedProperties";
@@ -11,6 +12,10 @@ import rentImage from '../assets/img/header-rent-icon-1.webp';
 
 const HomePage = () => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = process.env.REACT_APP_NAME;
+  }, []);
 
   return (
     <main className="Main">

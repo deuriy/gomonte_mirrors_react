@@ -1,9 +1,19 @@
 import { Link } from 'react-router-dom';
 
 import { Trans, useTranslation } from 'react-i18next';
+import { useEffect, useContext } from 'react';
+
+import { LanguageContext } from '../chunks/Provider';
 
 const NotFoundPage = () => {
   const { t } = useTranslation();
+  const { language } = useContext(LanguageContext);
+
+  useEffect(() => {
+    document.title = `${process.env.REACT_APP_NAME} - ${t('not_found.title')}`;
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language]);
 
   return (
     <div className="NotFound">

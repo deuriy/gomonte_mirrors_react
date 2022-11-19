@@ -1,7 +1,16 @@
 import { t } from 'i18next';
 import image from '../assets/img/budva-bg.webp';
 
+import { useContext, useEffect } from 'react';
+import { LanguageContext } from '../chunks/Provider';
+
 const AboutPage = () => {
+  const { language } = useContext(LanguageContext);
+
+  useEffect(() => {
+    document.title = `${process.env.REACT_APP_NAME} - ${t('menu.about')}`;
+  }, [language]);
+
   return (
     <main className="Main Main-aboutPage">
       <div className="AboutPage">

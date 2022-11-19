@@ -53,7 +53,8 @@ const PropertiesPage = () => {
   let title = (department === 'rent') ? t('properties_pages.rent') : t('properties_pages.sale');
 
   useEffect(() => {
-    // loadProperties();
+    document.title = `${process.env.REACT_APP_NAME} - ` + t(`services.${department}.title`);
+
     rpc.exec("get_real_estate_properties", {
       "lang": language,
       "department": department,
@@ -72,30 +73,10 @@ const PropertiesPage = () => {
 
       setLoading(true);
       propertiesRef.current.scrollIntoView();
-    }).catch(err => console.warn(err));
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoaded, department, language]);
-
-  // function loadProperties() {
-  //   rpc.exec("get_real_estate_properties", {
-  //     "lang": language,
-  //     "department": department,
-  //     "estate_type": estateType,
-  //     "cities": cities,
-  //     "bedrooms_num": bedroomsNum,
-  //     "price_min": priceMin,
-  //     "price_max": priceMax,
-  //     "footage_from": footageMin,
-  //     "footage_to": footageMax,
-  //     "page": currentPage
-  //   }).then(data => {
-  //     setProperties(data.result.records);
-  //     setCurrentPage(data.result.pagination.current_page);
-  //     setTotalPages(data.result.pagination.total_pages);
-
-  //     setLoading(true);
-  //     propertiesRef.current.scrollIntoView();
-  //   }).catch(err => console.warn(err));
-  // }
 
   return (
     <main className="Main">
