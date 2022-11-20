@@ -2,7 +2,8 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { FilterMenuTrigger } from './FilterMenuTrigger';
 
-import { useContext } from 'react';
+import { Checkbox } from './Checkbox';
+import React, { useContext } from 'react';
 import { LanguageContext } from '../../chunks/Provider';
 
 const CheckboxList = ({ name, data, defaultLabel, selectedValues, setFieldFunc, ...props }) => {
@@ -38,10 +39,9 @@ const CheckboxList = ({ name, data, defaultLabel, selectedValues, setFieldFunc, 
         <div className="CheckboxList CheckboxList-filterElementDropdown">
           {
             data.map(item => (
-              <div key={item.id} className="Checkbox CheckboxList_item">
-                <input className="Checkbox_input" type="checkbox" name={name} value={item.id} id={`id_${name}_${item.id}`} checked={selectedValues.includes(item.id)} onChange={onChangeField} />
-                <label className="Checkbox_label" htmlFor={`id_${name}_${item.id}`}>{item[`name_${language}`]}</label>
-              </div>
+              <React.Fragment key={item.id}>
+                <Checkbox id={item.id} name={name} selectedValues={selectedValues} onChangeField={onChangeField}>{item[`name_${language}`]}</Checkbox>
+              </React.Fragment>
             ))
           }
         </div>
