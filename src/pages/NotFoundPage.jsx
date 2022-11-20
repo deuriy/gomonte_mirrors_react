@@ -12,7 +12,7 @@ const NotFoundPage = () => {
   useEffect(() => {
     document.title = `${process.env.REACT_APP_NAME} - ${t('not_found.title')}`;
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [language]);
 
   return (

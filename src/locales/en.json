@@ -17,41 +17,7 @@
       "commercial": "Commercial"
     },
     "cities": {
-      "label": "City",
-      "budva": "Budva",
-      "bechichi": "Bečići",
-      "bar": "Bar",
-      "zhabliak": "Žabljak",
-      "kotor": "Kotor",
-      "krimovica": "Krimovica",
-      "lastva": "Lastva",
-      "markovichi": "Markovići",
-      "petrovac": "Petrovac",
-      "podgorica": "Podgorica",
-      "przhno": "Pržno",
-      "rafailovichi": "Rafailovići",
-      "rezhevichi": "Reževići",
-      "risan": "Risan",
-      "sveti_stefan": "Sveti Stefan",
-      "tivat": "Tivat",
-      "herzeg_novi": "Herceg Novi",
-      "cetinje": "Cetinje",
-      "sutomore": "Sutomore",
-      "krashichi": "Krasići",
-      "stoliv": "Stoliv",
-      "seoce": "Seoce",
-      "buljarica": "Buljarica",
-      "blizikuce": "Blizikuće",
-      "radanovici": "Radanovići",
-      "kamenovo": "Kamenovo",
-      "dobrota": "Dobrota",
-      "lushtica": "Luštica",
-      "lapchichi": "Lapcici",
-      "dzhenovichi": "Djenovici",
-      "ulcin": "Ulcinj",
-      "bigovo": "Bigovo",
-      "strp": "Strp",
-      "dobra_voda": "Dobra Voda"
+      "label": "City"
     },
     "price": {
       "label": "Price",
@@ -64,13 +30,7 @@
       "max": "to (m²)"
     },
     "bedrooms_number": {
-      "label": "Bedrooms number",
-      "studio": "Studio",
-      "one": "1 bedroom",
-      "two": "2 bedrooms",
-      "three": "3 bedrooms",
-      "four": "4 bedrooms",
-      "more": "and more"
+      "label": "Bedrooms number"
     },
     "property_code": "Property code",
     "search": "Search"

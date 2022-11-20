@@ -17,41 +17,7 @@
       "commercial": "Комерцијални"
     },
     "cities": {
-      "label": "Grad",
-      "budva": "Budva",
-      "bechichi": "Bečići",
-      "bar": "Bar",
-      "zhabliak": "Žabljak",
-      "kotor": "Kotor",
-      "krimovica": "Krimovica",
-      "lastva": "Lastva",
-      "markovichi": "Markovići",
-      "petrovac": "Petrovac",
-      "podgorica": "Podgorica",
-      "przhno": "Pržno",
-      "rafailovichi": "Rafailovići",
-      "rezhevichi": "Reževići",
-      "risan": "Risan",
-      "sveti_stefan": "Sveti Stefan",
-      "tivat": "Tivat",
-      "herzeg_novi": "Herceg Novi",
-      "cetinje": "Cetinje",
-      "sutomore": "Sutomore",
-      "krashichi": "Krasići",
-      "stoliv": "Stoliv",
-      "seoce": "Seoce",
-      "buljarica": "Buljarica",
-      "blizikuce": "Blizikuće",
-      "radanovici": "Radanovići",
-      "kamenovo": "Kamenovo",
-      "dobrota": "Dobrota",
-      "lushtica": "Luštica",
-      "lapchichi": "Lapcici",
-      "dzhenovichi": "Djenovici",
-      "ulcin": "Ulcinj",
-      "bigovo": "Bigovo",
-      "strp": "Strp",
-      "dobra_voda": "Dobra Voda"
+      "label": "Grad"
     },
     "price": {
       "label": "Цена",
@@ -64,13 +30,7 @@
       "max": "до (м²)"
     },
     "bedrooms_number": {
-      "label": "Број спаваћих соба",
-      "studio": "Студио",
-      "one": "1 спаваћа соба",
-      "two": "2 спаваће собе",
-      "three": "3 спаваће собе",
-      "four": "4 спаваће собе",
-      "more": "и још"
+      "label": "Број спаваћих соба"
     },
     "property_code": "Шифра имовине",
     "search": "Претрага"

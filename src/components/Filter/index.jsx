@@ -10,14 +10,17 @@ import { NumberRange } from './NumberRange';
 import { RadioBtnTabs } from './RadioBtnTabs';
 import { RadioBtnsList } from './RadioBtnsList';
 
-import { allCities } from '../../data/cities';
 import { allDepartments } from '../../data/departments';
 import { allEstateTypes } from '../../data/estate_types';
 import { allBedroomsNum } from '../../data/bedrooms_num';
 
+import { rpc } from '../../chunks/JsonRpc';
+
 const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
   let [searchParams] = useSearchParams();
   let navigate = useNavigate();
+
+  let [allCities, setAllCities] = useState([]);
 
   let [department, setDepartment] = useState(departmentValue);
   let [disabledDepartment, setDisabledDepartment] = useState([]);
@@ -39,6 +42,12 @@ const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
   }
 
   useEffect(() => {
+    rpc.exec("get_cities", {}).then(data => {
+      setAllCities(data.result);
+    });
+  }, []);
+
+  useEffect(() => {
     setEstateType(Number(params.estateType));
     setCities(params.cities.map(item => Number(item)));
     setPriceMin(params.priceMin);
@@ -54,6 +63,8 @@ const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
     if (!searchParams.get("current_page") && setCurrentPage) {
       setCurrentPage(1);
     }
+
+    // eslint-disable-next-line
   }, [searchParams]);
 
   useEffect(() => {
@@ -98,11 +109,11 @@ const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
         <div className="Filter_bottom">
           <RadioBtnsList name="department" values={allDepartments} field={department} setFieldFunc={setDepartment} disabledValues={disabledDepartment} />
 
-          <CheckboxList name="cities" values={allCities} valueOffset="1" defaultLabel={t('filter.cities.label')} field={cities} setFieldFunc={setCities} />
+          <CheckboxList name="cities" data={allCities} defaultLabel={t('filter.cities.label')} selectedValues={cities} setFieldFunc={setCities} />
 
           <NumberRange nameFrom="footage_min" nameTo="footage_max" valueFrom={footageMin} valueTo={footageMax} labelFrom={t('filter.footage.min')} labelTo={t('filter.footage.max')} setValueFrom={setFootageMin} setValueTo={setFootageMax} label={t('filter.footage.label')} style={{ display: estateType === 3 || estateType === 4 ? '' : 'none' }} />
 
-          <CheckboxList name="bedrooms_num" values={allBedroomsNum} defaultLabel={t('filter.bedrooms_number.label')} field={bedroomsNum} setFieldFunc={setBedroomsNum} style={{ display: estateType === 1 || estateType === 2 ? '' : 'none' }} />
+          <CheckboxList name="bedrooms_num" data={allBedroomsNum} defaultLabel={t('filter.bedrooms_number.label')} selectedValues={bedroomsNum} setFieldFunc={setBedroomsNum} style={{ display: estateType === 1 || estateType === 2 ? '' : 'none' }} />
 
           <NumberRange nameFrom="price_min" nameTo="price_max" valueFrom={priceMin} valueTo={priceMax} labelFrom={t('filter.price.min')} labelTo={t('filter.price.max')} setValueFrom={setPriceMin} setValueTo={setPriceMax} label={t('filter.price.label')} />
         </div>

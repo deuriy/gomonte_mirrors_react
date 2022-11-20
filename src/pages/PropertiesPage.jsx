@@ -75,7 +75,7 @@ const PropertiesPage = () => {
       propertiesRef.current.scrollIntoView();
     });
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [isLoaded, department, language]);
 
   return (
