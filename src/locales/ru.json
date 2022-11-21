@@ -5,10 +5,6 @@
     "about": "О Нас"
   },
   "filter": {
-    "department": {
-      "buy": "Купить",
-      "rent": "Снять"
-    },
     "estate_type": {
       "residental_property": "Жилая недвижимость",
       "flats": "Квартира",
@@ -17,41 +13,7 @@
       "commercial": "Коммерческая"
     },
     "cities": {
-      "label": "Город",
-      "budva": "Будва",
-      "bechichi": "Бечичи",
-      "bar": "Бар",
-      "zhabliak": "Жабляк",
-      "kotor": "Котор",
-      "krimovica": "Кримовица",
-      "lastva": "Ластва",
-      "markovichi": "Марковичи",
-      "petrovac": "Петровац",
-      "podgorica": "Подгорица",
-      "przhno": "Пржно",
-      "rafailovichi": "Рафаиловичи",
-      "rezhevichi": "Режевичи",
-      "risan": "Рисан",
-      "sveti_stefan": "Свети Стефан",
-      "tivat": "Тиват",
-      "herzeg_novi": "Херцег Нови",
-      "cetinje": "Цетинье",
-      "sutomore": "Сутоморе",
-      "krashichi": "Крашичи",
-      "stoliv": "Столив",
-      "seoce": "Сеоце",
-      "buljarica": "Бульярица",
-      "blizikuce": "Близекуче",
-      "radanovici": "Радановичи",
-      "kamenovo": "Каменово",
-      "dobrota": "Доброта",
-      "lushtica": "Луштица",
-      "lapchichi": "Лапчичи",
-      "dzhenovichi": "Дженовичи",
-      "ulcin": "Ульцин",
-      "bigovo": "Бигово",
-      "strp": "Стрп",
-      "dobra_voda": "Добра Вода"
+      "label": "Город"
     },
     "price": {
       "label": "Цена",
@@ -64,13 +26,7 @@
       "max": "до (м²)"
     },
     "bedrooms_number": {
-      "label": "К-во спален",
-      "studio": "Студия",
-      "one": "1 спальня",
-      "two": "2 спальни",
-      "three": "3 спальни",
-      "four": "4 спальни",
-      "more": "и более"
+      "label": "К-во спален"
     },
     "property_code": "Код объекта",
     "search": "Поиск"
@@ -129,14 +85,14 @@
     "rent": "Аренда",
     "sale": "Продажа"
   },
-  "not_found": {
+  "no_results": {
     "title": "Посмотрите актуальные предложения",
     "description": "Не найдено объектов недвижимости. Пожалуйста попробуйте снова с другими параметрами фильтрации."
   },
   "property_page": {
     "more_materials": "Больше материалов",
     "location_and_cost": "Расположение и стоимость",
-    "bedrooms_number": "К-во комнат",
+    "rooms_number": "К-во комнат",
     "city": "Город",
     "bedrooms": "Спальни",
     "price_per_year": "на год",
@@ -144,5 +100,10 @@
     "characteristics": "Характеристики",
     "property_description": "Описание недвижимости",
     "similar_objects": "Похожие Объекты"
+  },
+  "not_found": {
+    "title": "Страница не найдена",
+    "description": "Страница могла быть перемещена или удалена.<1/>Вы можете воспользоваться меню или вернуться на главную",
+    "go_home_page": "На главную"
   }
 }

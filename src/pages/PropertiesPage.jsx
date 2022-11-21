@@ -4,11 +4,12 @@ import { useState, useEffect, useRef, useContext } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 
 import { Filter } from "../components/Filter";
-import { PropertyCard } from "../components/PropertyCard";
-import { Pagination } from '../components/Pagination';
-import { NotFound } from '../components/NotFound';
+import { PropertyCard } from "../components/Property/PropertyCard";
+import { Pagination } from '../components/Blocks/Pagination';
+import { NoResults } from '../components/Blocks/NoResults';
 
-import { LanguageContext } from '../components/Provider';
+import { LanguageContext } from '../chunks/Provider';
+import { rpc } from '../chunks/JsonRpc';
 
 const PropertiesPage = () => {
   let [searchParams] = useSearchParams();
@@ -22,7 +23,7 @@ const PropertiesPage = () => {
 
   let department = pathname.substring(1) || 'sale';
 
-  let estateType = searchParams.get('estate_type') || 'flats';
+  let estateType = Number(searchParams.get('estate_type')) || 1;
   let cities = searchParams.getAll('cities') || [];
   let bedroomsNum = searchParams.getAll('bedrooms_num') || [];
   let priceMin = Number(searchParams.get('price_min')) || 100;
@@ -52,47 +53,30 @@ const PropertiesPage = () => {
   let title = (department === 'rent') ? t('properties_pages.rent') : t('properties_pages.sale');
 
   useEffect(() => {
-    loadProperties();
-    console.log('language');
+    document.title = `${process.env.REACT_APP_NAME} - ` + t(`services.${department}.title`);
+
+    rpc.exec("get_real_estate_properties", {
+      "lang": language,
+      "department": department,
+      "estate_type": estateType,
+      "cities": cities,
+      "bedrooms_num": bedroomsNum,
+      "price_min": priceMin,
+      "price_max": priceMax,
+      "footage_from": footageMin,
+      "footage_to": footageMax,
+      "page": currentPage
+    }).then(data => {
+      setProperties(data.result.records);
+      setCurrentPage(data.result.pagination.current_page);
+      setTotalPages(data.result.pagination.total_pages);
+
+      setLoading(true);
+      propertiesRef.current.scrollIntoView();
+    });
+
+    // eslint-disable-next-line
   }, [isLoaded, department, language]);
-
-  function loadProperties() {
-    fetch('http://0.0.0.0:8000/rpc/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "jsonrpc": "2.0",
-        "id": "fj45hsg",
-        "method": "get_real_estate_properties",
-        "params": {
-          "lang": language,
-          "department": department,
-          "estate_type": estateType,
-          "cities": cities,
-          "bedrooms_num": bedroomsNum,
-          "price_min": priceMin,
-          "price_max": priceMax,
-          "footage_from": footageMin,
-          "footage_to": footageMax,
-          "page": currentPage
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(data => {
-        setProperties(data.result.records);
-        setCurrentPage(data.result.pagination.current_page);
-        setTotalPages(data.result.pagination.total_pages);
-
-        setLoading(true);
-        propertiesRef.current.scrollIntoView();
-      })
-      .catch(err => {
-        console.warn(err);
-      });
-  }
 
   return (
     <main className="Main">
@@ -133,7 +117,7 @@ const PropertiesPage = () => {
             ) : !isLoaded ? (
               <div>Loading data...</div>
             ) : (
-              <NotFound />
+              <NoResults />
             )}
           </div>
         </div>

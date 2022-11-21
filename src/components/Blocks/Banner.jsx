@@ -1,10 +1,10 @@
-import { Filter } from "./Filter";
+import { Filter } from "../Filter";
 
-const Banner = (props) => {
-  let bgImage = props.image || '';
+const Banner = ({ image }) => {
+  let bgImage = image || '';
 
   let params = {
-    estateType: "flats",
+    estateType: 1,
     cities: [],
     bedroomsNum: [],
     priceMin: 100,
@@ -19,7 +19,9 @@ const Banner = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <Filter params={params} departmentValue='sale' />
+            {
+              window.innerWidth > 1199 && <Filter params={params} departmentValue="sale" />
+            }
           </div>
         </div>
       </div>

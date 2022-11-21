@@ -1,10 +1,13 @@
-import { t } from 'i18next';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 import { FilterMenuTrigger } from './FilterMenuTrigger';
 
-const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setFieldFunc, ...props }) => {
-  valueOffset = Number(valueOffset);
+import { Checkbox } from './Checkbox';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../chunks/Provider';
+
+const CheckboxList = ({ name, data, defaultLabel, selectedValues, setFieldFunc, ...props }) => {
+  const { language } = useContext(LanguageContext);
 
   function onChangeField(event) {
     let target = event.target;
@@ -12,16 +15,19 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
     let checked = target.checked;
 
     if (checked) {
-      setFieldFunc([...field, value]);
+      setFieldFunc([...selectedValues, value]);
     } else {
-      setFieldFunc(field.filter(item => item !== value));
+      setFieldFunc(selectedValues.filter(item => item !== value));
     }
   }
 
   function getFieldLabel() {
-    if (!field.length) return defaultLabel;
+    if (!selectedValues.length) return defaultLabel;
 
-    return defaultLabel + ': ' + field.map(item => t(`${values[item - valueOffset]}`)).join(', ');
+    return defaultLabel + ': ' + data
+      .filter(item => selectedValues.includes(item.id))
+      .map(item => item["name_" + language])
+      .join(', ');
   }
 
   return (
@@ -32,11 +38,10 @@ const CheckboxList = ({ name, values, valueOffset = 0, defaultLabel, field, setF
       <Dropdown.Menu className="FilterElementDropdown FilterElement_dropdown FilterElementDropdown-checkboxList">
         <div className="CheckboxList CheckboxList-filterElementDropdown">
           {
-            values.map((item, idx) => (
-              <div key={idx} className="Checkbox CheckboxList_item">
-                <input className="Checkbox_input" type="checkbox" name={name} value={idx + valueOffset} id={`id_${name}_${idx + valueOffset}`} checked={field.includes(idx + valueOffset)} onChange={onChangeField} />
-                <label className="Checkbox_label" htmlFor={`id_${name}_${idx + valueOffset}`}>{t(`${item}`)}</label>
-              </div>
+            data.map(item => (
+              <React.Fragment key={item.id}>
+                <Checkbox id={item.id} name={name} selectedValues={selectedValues} onChangeField={onChangeField}>{item[`name_${language}`]}</Checkbox>
+              </React.Fragment>
             ))
           }
         </div>

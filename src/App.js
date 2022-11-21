@@ -6,11 +6,12 @@ import { HomePage } from './pages/HomePage';
 import { PropertiesPage } from './pages/PropertiesPage';
 import { AboutPage } from './pages/AboutPage';
 import { PropertyPage } from './pages/PropertyPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 import { Layout } from './components/Layout';
 
 import { useLocalStorage } from './hooks/use-localstorage';
-import { LanguageContext } from './components/Provider';
+import { LanguageContext } from './chunks/Provider';
 
 import './i18n';
 
@@ -25,12 +26,13 @@ function App() {
   return (
     <LanguageContext.Provider value={value}>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path='rent' element={<PropertiesPage />} />
-          <Route path='sale' element={<PropertiesPage />} />
-          <Route path='about' element={<AboutPage />} />
-          <Route path='properties/:id' element={<PropertyPage />} />
+          <Route path="rent" element={<PropertiesPage />} />
+          <Route path="sale" element={<PropertiesPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="properties/:id" element={<PropertyPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </LanguageContext.Provider>

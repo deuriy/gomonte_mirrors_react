@@ -4,7 +4,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Pagination = ({ params, currentPage = 1, totalPages = 1, setCurrentPage, setLoading, ...props }) => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let setSearchParams = useSearchParams()[1];
 
   function onClickHandler(value) {
     let pageNumber = Number(value);

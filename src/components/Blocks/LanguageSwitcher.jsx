@@ -1,18 +1,18 @@
-import { i18n } from '../i18n';
+import { i18n } from '../../i18n';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 
 import { useContext } from 'react';
 import { LanguageSwitcherToggleBtn } from './LanguageSwitcherToggleBtn';
 
-import { LanguageContext } from './Provider';
+import { LanguageContext } from '../../chunks/Provider';
 
-import { useLocalStorage } from '../hooks/use-localstorage';
+import { useLocalStorage } from '../../hooks/use-localstorage';
 
-import { langs } from '../data/langs';
+import { langs } from '../../data/langs';
 
 const LanguageSwitcher = () => {
-  const [activeLang, setActiveLang] = useLocalStorage('language', 'me');
+  const setActiveLang = useLocalStorage('language', 'me')[1];
   const { language, setLanguage } = useContext(LanguageContext);
 
   function setLang(lang) {
@@ -31,7 +31,7 @@ const LanguageSwitcher = () => {
         {
           Object.entries(langs).map(item => (
             <Dropdown.Item key={item[0]} className="LanguageSwitcher_item" eventKey={item[0]}>
-              <img className="Language_icon" src={item[1]["icon"]} alt="" />
+              <img className="Language_icon" src={item[1]["icon"]} alt={item[1]["label"]} />
               <span className="Language_text">{item[1]["label"]}</span>
             </Dropdown.Item>
           ))

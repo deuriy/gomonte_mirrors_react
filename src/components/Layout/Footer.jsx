@@ -1,7 +1,7 @@
 import { t } from 'i18next';
 import { Link } from 'react-router-dom';
 
-import paymentMethodsImage from '../assets/img/payment-methods.webp';
+import paymentMethodsImage from '../../assets/img/payment-methods.webp';
 
 const Footer = () => {
   return (
@@ -10,12 +10,12 @@ const Footer = () => {
         <div className="row">
           <div className="col-12 col-lg-3">
             <div className="FooterBlock Footer_menuBlock">
-              <h3 className="FooterBlock_title">MonteSale</h3>
+              <h3 className="FooterBlock_title">{process.env.REACT_APP_NAME}</h3>
               <div className="SecondaryMenu">
                 <ul className="SecondaryMenu_list">
-                  <li className="SecondaryMenu_item">{t('footer.phone')}:<a className="SecondaryMenu_link" href="tel:+38267214405">+382 67 214 405</a></li>
-                  <li className="SecondaryMenu_item">{t('footer.phone')}:<a className="SecondaryMenu_link" href="tel:+79036281146">+7 903 628 11 46</a></li>
-                  <li className="SecondaryMenu_item"><a className="SecondaryMenu_link" href="mailto:777juli@mail.ru">777juli@mail.ru</a></li>
+                  <li className="SecondaryMenu_item">{t('footer.phone')}:<a className="SecondaryMenu_link" href={`tel:${process.env.REACT_APP_PHONE}`}>{process.env.REACT_APP_PHONE}</a></li>
+                  <li className="SecondaryMenu_item">{t('footer.phone')}:<a className="SecondaryMenu_link" href={`tel:${process.env.REACT_APP_PHONE_2}`}>{process.env.REACT_APP_PHONE_2}</a></li>
+                  <li className="SecondaryMenu_item"><a className="SecondaryMenu_link" href={`mailto:${process.env.REACT_APP_EMAIL}`}>{process.env.REACT_APP_EMAIL}</a></li>
                 </ul>
               </div>
             </div>
