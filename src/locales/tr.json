@@ -5,10 +5,6 @@
     "about": "Hakkımızda"
   },
   "filter": {
-    "department": {
-      "buy": "Satın almak",
-      "rent": "Kiraya vermek"
-    },
     "estate_type": {
       "residental_property": "Yerleşim yerleri",
       "flats": "Düz",

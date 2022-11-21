@@ -1,24 +1,35 @@
-import { t } from 'i18next';
+import React, { useContext } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 import { FilterMenuTrigger } from './FilterMenuTrigger';
+import { RadioButton } from './RadioButton';
 
-const RadioBtnsList = ({ name, values, field, setFieldFunc, disabledValues = [], ...props }) => {
+import { LanguageContext } from '../../chunks/Provider';
+
+const RadioBtnsList = ({ name, data, selectedValue, setFieldFunc, disabledValues = [], ...props }) => {
+  console.log(data);
+  const { language } = useContext(LanguageContext);
+
   function onChangeField(event) {
     setFieldFunc(event.target.value);
   }
 
+  function getFieldLabel() {
+    return data
+      .filter(item => selectedValue.includes(item.id))
+      .map(item => item["name_" + language]);
+  }
+
   return (
     <Dropdown className="FilterElement Filter_item" {...props}>
-      <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">{t(`${values[field]}`)}</Dropdown.Toggle>
+      <Dropdown.Toggle as={FilterMenuTrigger} className="FilterMenuTrigger">{getFieldLabel()}</Dropdown.Toggle>
       <Dropdown.Menu className="FilterElementDropdown FilterElement_dropdown">
-        <div className='RadioButtonList'>
+        <div className="RadioButtonList">
           {
-            Object.entries(values).map(item => (
-              <div key={item[0]} className="RadioButton RadioButtonList_item">
-                <input className="RadioButton_input" type="radio" name={name} value={item[0]} id={`id_${name}_${item[0]}`} checked={field === item[0] ? true : false} onChange={onChangeField} disabled={disabledValues.includes(item[0])} />
-                <label className="RadioButton_label" htmlFor={`id_${name}_${item[0]}`} disabled={disabledValues.includes(item[0])}>{t(`${item[1]}`)}</label>
-              </div>
+            data.map(item => (
+              <React.Fragment key={item.id}>
+                <RadioButton id={item.id} name={name} selectedValue={selectedValue} disabledValues={disabledValues} onChangeField={onChangeField}>{item[`name_${language}`]}</RadioButton>
+              </React.Fragment>
             ))
           }
         </div>

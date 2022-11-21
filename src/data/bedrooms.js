@@ -1,4 +1,4 @@
-const allBedroomsNum = [
+const allBedrooms = [
   {
     "id": 0,
     "name_ru": "Студия",
@@ -36,11 +36,11 @@ const allBedroomsNum = [
   },
   {
     "id": 5,
-    "name_ru": "и более",
-    "name_en": "and more",
-    "name_me": "и још",
-    "name_tr": "ve dahası"
+    "name_ru": "5+ спален",
+    "name_en": "5+ bedrooms",
+    "name_me": "5+ spavaćih soba",
+    "name_tr": "5+ yatak odası"
   }
 ];
 
-export { allBedroomsNum };
+export { allBedrooms };

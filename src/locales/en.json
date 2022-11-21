@@ -5,10 +5,6 @@
     "about": "About"
   },
   "filter": {
-    "department": {
-      "buy": "Buy",
-      "rent": "Rent"
-    },
     "estate_type": {
       "residental_property": "Residential property",
       "flats": "Flats",

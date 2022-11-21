@@ -12,7 +12,7 @@ import { RadioBtnsList } from './RadioBtnsList';
 
 import { allDepartments } from '../../data/departments';
 import { allEstateTypes } from '../../data/estate_types';
-import { allBedroomsNum } from '../../data/bedrooms_num';
+import { allBedrooms } from '../../data/bedrooms';
 
 import { rpc } from '../../chunks/JsonRpc';
 
@@ -107,13 +107,13 @@ const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
           <RadioBtnTabs name="estate_type" values={allEstateTypes} field={estateType} setFieldFunc={setEstateType} onChangeFunc={onChangeEstateTypes} />
         </div>
         <div className="Filter_bottom">
-          <RadioBtnsList name="department" values={allDepartments} field={department} setFieldFunc={setDepartment} disabledValues={disabledDepartment} />
+          <RadioBtnsList name="department" data={allDepartments} selectedValue={department} setFieldFunc={setDepartment} disabledValues={disabledDepartment} />
 
           <CheckboxList name="cities" data={allCities} defaultLabel={t('filter.cities.label')} selectedValues={cities} setFieldFunc={setCities} />
 
           <NumberRange nameFrom="footage_min" nameTo="footage_max" valueFrom={footageMin} valueTo={footageMax} labelFrom={t('filter.footage.min')} labelTo={t('filter.footage.max')} setValueFrom={setFootageMin} setValueTo={setFootageMax} label={t('filter.footage.label')} style={{ display: estateType === 3 || estateType === 4 ? '' : 'none' }} />
 
-          <CheckboxList name="bedrooms_num" data={allBedroomsNum} defaultLabel={t('filter.bedrooms_number.label')} selectedValues={bedroomsNum} setFieldFunc={setBedroomsNum} style={{ display: estateType === 1 || estateType === 2 ? '' : 'none' }} />
+          <CheckboxList name="bedrooms_num" data={allBedrooms} defaultLabel={t('filter.bedrooms_number.label')} selectedValues={bedroomsNum} setFieldFunc={setBedroomsNum} style={{ display: estateType === 1 || estateType === 2 ? '' : 'none' }} />
 
           <NumberRange nameFrom="price_min" nameTo="price_max" valueFrom={priceMin} valueTo={priceMax} labelFrom={t('filter.price.min')} labelTo={t('filter.price.max')} setValueFrom={setPriceMin} setValueTo={setPriceMax} label={t('filter.price.label')} />
         </div>

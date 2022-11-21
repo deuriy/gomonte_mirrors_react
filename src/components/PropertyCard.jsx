@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation, Lazy } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,29 +9,20 @@ import 'swiper/css/navigation';
 import loadingImage from '../assets/img/realestate_loading.gif';
 import { t } from 'i18next';
 
+import { allBedrooms } from '../data/bedrooms';
+import { LanguageContext } from '../chunks/Provider';
+
 const truncate = (input, maxlength) => input.length > maxlength ? `${input.substring(0, maxlength)}...` : input;
 
-function getBedroomsLabel(bedrooms_num) {
-  let result = '';
-
-  if (bedrooms_num % 10 === 1 && bedrooms_num !== 11) {
-    result = `${bedrooms_num} спальня`;
-  }
-  else if ((bedrooms_num > 20 || bedrooms_num < 10) && (bedrooms_num % 10 === 2 || bedrooms_num % 10 === 3 || bedrooms_num % 10 === 4)) {
-    result = `${bedrooms_num} спальни`;
-  }
-  else {
-    result = `${bedrooms_num} спален`;
-  }
-
-  return result;
-}
-
 const PropertyCard = ({ data }) => {
+  const { language } = useContext(LanguageContext);
+
   let price = data[`price_${data.department}`] !== null ? data[`price_${data.department}`] : '';
   let footage = data.footage_indoor || data.footage_land;
   let pricePerSquare = price / footage;
   let idPrefix = data.department === 'sale' ? 's' : 'r';
+
+  console.log(data);
 
   return (
     <div className="PropertyCard">
@@ -78,7 +69,7 @@ const PropertyCard = ({ data }) => {
           <div className="PropertyCardCharacteristic_value">{data.location.name}</div>
         </div>
         <div className="PropertyCardCharacteristic PropertyCardCharacteristic-square PropertyCardCharacteristics_item">
-          <div className="PropertyCardCharacteristic_value">{getBedroomsLabel(data.bedrooms_num)} - {footage} m<sup>2</sup></div>
+          <div className="PropertyCardCharacteristic_value">{allBedrooms[data.bedrooms_num][`name_${language}`]} - {footage} m<sup>2</sup></div>
         </div>
       </div>
       <div className="PropertyPrices PropertyCard_prices">

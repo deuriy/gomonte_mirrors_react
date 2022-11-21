@@ -5,10 +5,6 @@
     "about": "О томе"
   },
   "filter": {
-    "department": {
-      "buy": "Купи",
-      "rent": "Кирија"
-    },
     "estate_type": {
       "residental_property": "Становање",
       "flats": "Станови",
