@@ -1,4 +1,4 @@
-import { Filter } from "./Filter";
+import { Filter } from "../Filter";
 
 const Banner = ({ image }) => {
   let bgImage = image || '';

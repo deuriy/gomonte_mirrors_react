@@ -1,11 +1,11 @@
-import { Logo } from './Logo';
-import { MainMenu } from './MainMenu';
-import { Phone } from './Phone';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import { Logo } from '../Blocks/Logo';
+import { MainMenu } from '../Blocks/MainMenu';
+import { Phone } from '../Blocks/Phone';
+import { LanguageSwitcher } from '../Blocks/LanguageSwitcher';
 
-import { menu } from '../data/menu';
+import { menu } from '../../data/menu';
 
-import logo from '../assets/img/logo.webp';
+import logo from '../../assets/img/logo.webp';
 
 const Header = () => {
   return (

@@ -1,25 +1,28 @@
+import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 
-import { PropertyCard } from './PropertyCard'
+import { PropertyCard } from './PropertyCard';
+import { t } from 'i18next';
 
-import { LanguageContext } from '../chunks/Provider';
-import { rpc } from '../chunks/JsonRpc';
+import { LanguageContext } from '../../chunks/Provider';
+import { rpc } from '../../chunks/JsonRpc';
 
-const SimilarProperties = ({ id, department, title }) => {
+const FeaturedProperties = ({ title, showButton }) => {
   let [properties, setProperties] = useState([]);
   const { language } = useContext(LanguageContext);
 
   useEffect(() => {
-    rpc.exec("get_similar_properties", {
+    rpc.exec("get_featured_properties", {
       "lang": language,
-      "id": id,
-      "department": department
+      "department": "sale",
+      "estate_type": 1,
+      "count": 4
     }).then(data => setProperties(data.result.records));
-  }, [id, department, language]);
+  }, [language]);
 
   return (
-    <div className="PropertyCards PropertyCards-similar PropertyPage_PropertyCards">
-      <div className="container">
+    <div className="PropertyCards">
+      <div className='container'>
         {title
           ? <div className="row">
             <div className="col-12">
@@ -34,7 +37,7 @@ const SimilarProperties = ({ id, department, title }) => {
             <div className="row">
               {
                 properties.map(property => (
-                  <div className="col-12 col-md-6 col-xl-3 PropertyCards_col" key={property.code}>
+                  <div className='col-12 col-md-6 col-xl-3 PropertyCards_col' key={property.code}>
                     <PropertyCard data={property} />
                   </div>
                 ))
@@ -44,9 +47,15 @@ const SimilarProperties = ({ id, department, title }) => {
           : ''
         }
 
+        {showButton
+          ? <div className="PropertyCards_bottom">
+            <Link className="BtnSuccess PropertyCards_btn" to="/rent">{t('best_offers.button')}</Link>
+          </div>
+          : ''
+        }
       </div>
     </div>
   );
 }
 
-export { SimilarProperties };
+export { FeaturedProperties };

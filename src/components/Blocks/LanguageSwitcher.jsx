@@ -1,15 +1,15 @@
-import { i18n } from '../i18n';
+import { i18n } from '../../i18n';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 
 import { useContext } from 'react';
 import { LanguageSwitcherToggleBtn } from './LanguageSwitcherToggleBtn';
 
-import { LanguageContext } from '../chunks/Provider';
+import { LanguageContext } from '../../chunks/Provider';
 
-import { useLocalStorage } from '../hooks/use-localstorage';
+import { useLocalStorage } from '../../hooks/use-localstorage';
 
-import { langs } from '../data/langs';
+import { langs } from '../../data/langs';
 
 const LanguageSwitcher = () => {
   const setActiveLang = useLocalStorage('language', 'me')[1];

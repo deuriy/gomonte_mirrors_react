@@ -6,11 +6,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import loadingImage from '../assets/img/realestate_loading.gif';
+import loadingImage from '../../assets/img/realestate_loading.gif';
 import { t } from 'i18next';
 
-import { allBedrooms } from '../data/bedrooms';
-import { LanguageContext } from '../chunks/Provider';
+import { allBedrooms } from '../../data/bedrooms';
+import { LanguageContext } from '../../chunks/Provider';
 
 const truncate = (input, maxlength) => input.length > maxlength ? `${input.substring(0, maxlength)}...` : input;
 

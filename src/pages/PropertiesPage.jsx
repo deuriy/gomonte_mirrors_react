@@ -4,9 +4,9 @@ import { useState, useEffect, useRef, useContext } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 
 import { Filter } from "../components/Filter";
-import { PropertyCard } from "../components/PropertyCard";
-import { Pagination } from '../components/Pagination';
-import { NoResults } from '../components/NoResults';
+import { PropertyCard } from "../components/Property/PropertyCard";
+import { Pagination } from '../components/Blocks/Pagination';
+import { NoResults } from '../components/Blocks/NoResults';
 
 import { LanguageContext } from '../chunks/Provider';
 import { rpc } from '../chunks/JsonRpc';

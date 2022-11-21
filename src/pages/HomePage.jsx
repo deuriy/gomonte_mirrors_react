@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 
-import { Banner } from "../components/Banner";
-import { FeaturedProperties } from "../components/FeaturedProperties";
+import { Banner } from "../components/Blocks/Banner";
+import { FeaturedProperties } from "../components/Property/FeaturedProperties";
 
 import bannerBg from '../assets/img/budva-bg.webp';
 import rentImage from '../assets/img/header-rent-icon-1.webp';

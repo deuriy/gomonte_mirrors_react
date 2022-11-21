@@ -1,7 +1,7 @@
 import { t } from 'i18next';
 import { Link } from 'react-router-dom';
 
-import paymentMethodsImage from '../assets/img/payment-methods.webp';
+import paymentMethodsImage from '../../assets/img/payment-methods.webp';
 
 const Footer = () => {
   return (

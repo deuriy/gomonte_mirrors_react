@@ -92,7 +92,7 @@
   "property_page": {
     "more_materials": "Больше материалов",
     "location_and_cost": "Расположение и стоимость",
-    "bedrooms_number": "К-во комнат",
+    "rooms_number": "К-во комнат",
     "city": "Город",
     "bedrooms": "Спальни",
     "price_per_year": "на год",

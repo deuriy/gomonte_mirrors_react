@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { MobileSidebar } from './Mobile/MobileSidebar';
+import { MobileSidebar } from '../Mobile/MobileSidebar';
 
 const Layout = () => {
   const [showSidebar, setShowSidebar] = useState(false);
