@@ -19,7 +19,7 @@ const PropertyCard = ({ data }) => {
 
   let price = data[`price_${data.department}`] !== null ? data[`price_${data.department}`] : '';
   let footage = data.footage_indoor || data.footage_land;
-  let pricePerSquare = price / footage;
+  let pricePerSquare = Math.floor(price / footage);
   let idPrefix = data.department === 'sale' ? 's' : 'r';
 
   console.log(data);
