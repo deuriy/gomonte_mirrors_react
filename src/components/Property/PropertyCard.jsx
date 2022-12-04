@@ -81,7 +81,7 @@ const PropertyCard = ({ data }) => {
           : ''
         }
 
-        {pricePerSquare
+        {pricePerSquare && data.department === 'sale'
           ? <div className="PropertyPrice PropertyPrices_item">
             <div className="PropertyPrice_label">{t('property_card.per_square')}</div>
             <div className="PropertyPrice_value">€{pricePerSquare.toLocaleString()}</div>
