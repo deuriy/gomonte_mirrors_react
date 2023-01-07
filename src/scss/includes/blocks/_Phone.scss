@@ -1,23 +1,23 @@
 .Phone {
   display: inline-flex;
-  color: $info-dark;
+  color: var(--info-dark);
   text-decoration: none;
 
   @media #{$xlPlus} {
     gap: 3px;
-    color: $primary;
+    color: var(--primary);
   }
 
   &:hover {
-    color: $info-dark;
+    color: var(--info-dark);
 
     @media #{$xlPlus} {
-      color: $primary;
+      color: var(--primary);
     }
   }
 
   &>svg {
     margin-right: 10px;
-    color: $info;
+    color: var(--info);
   }
 }

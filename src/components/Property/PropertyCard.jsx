@@ -22,7 +22,7 @@ const PropertyCard = ({ data }) => {
   let pricePerSquare = Math.floor(price / footage);
   let idPrefix = data.department === 'sale' ? 's' : 'r';
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="PropertyCard">
@@ -81,7 +81,7 @@ const PropertyCard = ({ data }) => {
           : ''
         }
 
-        {pricePerSquare
+        {pricePerSquare && data.department === 'sale'
           ? <div className="PropertyPrice PropertyPrices_item">
             <div className="PropertyPrice_label">{t('property_card.per_square')}</div>
             <div className="PropertyPrice_value">€{pricePerSquare.toLocaleString()}</div>

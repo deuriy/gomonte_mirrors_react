@@ -6,19 +6,19 @@
 
   svg {
     margin-right: 10px;
-    color: $filter-link;
+    color: var(--filter-link);
   }
 
   &_title {
     margin-right: 3px;
     font-size: 14px;
-    color: $property-characteristic-color;
+    color: var(--property-characteristic-color);
   }
 
   &_value {
     &-city {
       text-decoration: none;
-      color: $primary;
+      color: var(--primary);
     }
 
     &-price {

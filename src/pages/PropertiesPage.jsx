@@ -89,7 +89,7 @@ const PropertiesPage = () => {
               </div>
             </div>
           )}
-          <div className="row hidden-xlMinus">
+          <div className="row">
             <div className="col-12">
               <div className="PropertiesPage_filterWrapper">
                 <Filter params={params} setCurrentPage={setCurrentPage} departmentValue={department} setLoading={setLoading} />

@@ -15,7 +15,7 @@
     border: none;
     background: transparent;
     padding: 8px 10px;
-    color: $secondary;
+    color: var(--secondary);
     font-size: 24px;
     transition: all .3s ease;
 
@@ -25,7 +25,7 @@
 
     &:hover {
       svg {
-        color: $info;
+        color: var(--info);
       }
     }
 
@@ -37,8 +37,8 @@
   &_item {
     &-current {
       .Pagination_btn {
-        background: $pagination-item-bg-color;
-        color: $light;
+        background: var(--pagination-item-bg-color);
+        color: var(--light);
       }
     }
   }
@@ -46,8 +46,8 @@
   &_btn {
     display: flex;
     padding: 10px 18px;
-    color: $primary;
-    border: 1px solid $pagination-item-border-color;
+    color: var(--primary);
+    border: 1px solid var(--pagination-item-border-color);
     background: transparent;
     border-radius: 25px;
     text-decoration: none;
@@ -58,8 +58,8 @@
 
     &:hover,
     &:focus {
-      color: $light;
-      background: $info;
+      color: var(--light);
+      background: var(--info);
     }
   }
 }

@@ -4,7 +4,7 @@
   gap: 10px;
   font-size: 14px;
   line-height: 1.4286;
-  color: $property-card-characteristic-color;
+  color: var(--property-card-characteristic-color);
 
   &::before {
     content: "";

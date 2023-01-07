@@ -8,8 +8,8 @@
   border: none;
   outline: none;
   font-size: 14px;
-  color: $secondary;
-  background: $light;
+  color: var(--secondary);
+  background: var(--light);
   text-decoration: none;
   text-align: left;
 
@@ -22,7 +22,7 @@
 
   &:hover,
   &:focus {
-    color: $secondary;
+    color: var(--secondary);
   }
 
   &_labelText {

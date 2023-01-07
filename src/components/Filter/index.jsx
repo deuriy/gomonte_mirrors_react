@@ -101,7 +101,7 @@ const Filter = ({ params, setCurrentPage, departmentValue, setLoading }) => {
   }
 
   return (
-    <form className="Filter hidden-xlMinus" onSubmit={handleSubmit}>
+    <form className="Filter" onSubmit={handleSubmit}>
       <div className="Filter_items">
         <div className="Filter_top">
           <RadioBtnTabs name="estate_type" values={allEstateTypes} field={estateType} setFieldFunc={setEstateType} onChangeFunc={onChangeEstateTypes} />

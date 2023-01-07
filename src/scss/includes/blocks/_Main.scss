@@ -1,12 +1,12 @@
 .Main {
-  box-shadow: 0 1px 4px 0 $main-wrapper-shadow-color;
-  background-image: linear-gradient($light, #f6f6f6);
+  box-shadow: 0 1px 4px 0 var(--main-wrapper-shadow-color);
+  background-image: linear-gradient(var(--light), #f6f6f6);
 
   &-aboutPage {
     @media #{$lgMinus} {
       padding-bottom: 0;
       box-shadow: none;
-      background: $light;
+      background: var(--light);
     }
 
     @media #{$lgPlus} {

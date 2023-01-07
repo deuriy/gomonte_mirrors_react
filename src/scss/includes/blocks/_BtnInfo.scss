@@ -2,8 +2,8 @@
 	display: inline-grid;
 	padding: 0.9375em 2.0625em;
 	border-radius: 5px;
-	background: $info;
-	color: $light;
+	background: var(--info);
+	color: var(--light);
 	border: none;
 	outline: none;
 	font-size: 16px;
@@ -13,8 +13,9 @@
 
 	&:hover,
 	&:focus {
-		color: $light;
-		background: darken($info, 10%);
+		color: var(--light);
+		// background: darken($info, 10%);
+		background: var(--info);
 	}
 
 	&-uppercase {

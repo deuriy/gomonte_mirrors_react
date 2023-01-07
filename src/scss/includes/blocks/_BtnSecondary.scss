@@ -2,24 +2,24 @@
 	display: inline-grid;
 	padding: .968em 2.15em;
 	border-radius: 5px;
-	background: $secondary;
-	color: $light;
+	background: var(--secondary);
+	color: var(--light);
 	border: none;
 	outline: none;
 	font-size: 14px;
 	text-decoration: none;
 	text-align: center;
-	
+
 	&:hover,
 	&:focus {
-		color: $light;
-  }
-	
+		color: var(--light);
+	}
+
 	&-fullWidth {
 		width: 100%;
-  }
-	
+	}
+
 	&-uppercase {
 		text-transform: uppercase;
-  }
+	}
 }

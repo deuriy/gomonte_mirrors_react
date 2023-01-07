@@ -1,12 +1,12 @@
 .PropertyCard {
   position: relative;
   max-width: 525px;
-  border: 1px solid $border-color;
-  background: $light;
+  border: 1px solid var(--border-color);
+  background: var(--light);
   transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 0 0 11px $object-shadow-color;
+    box-shadow: 0 0 11px var(--object-shadow-color);
   }
 
   &_label {
@@ -14,15 +14,15 @@
     z-index: 10;
     top: 10px;
     left: 10px;
-    text-shadow: 2px 2px 4px $object-text-shadow-color;
-    color: $light;
+    text-shadow: 2px 2px 4px var(--object-text-shadow-color);
+    color: var(--light);
   }
 
   &_textWrapper {
     display: grid;
     grid-template-columns: 100%;
     padding: 23px 16px 12px;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
   }
 
   &_title {
@@ -31,15 +31,15 @@
     line-height: 1.467;
 
     &:hover {
-      color: $info-dark;
+      color: var(--info-dark);
     }
 
     &>a {
-      color: $primary;
+      color: var(--primary);
       text-decoration: none;
 
       &:hover {
-        color: $info-dark;
+        color: var(--info-dark);
       }
     }
   }
@@ -58,12 +58,12 @@
   &_moreLink {
     justify-self: end;
     margin-right: 5px;
-    color: $object-link;
+    color: var(--object-link);
     font-size: 14px;
     text-decoration: none;
 
     &:hover {
-      color: $object-link-hover;
+      color: var(--object-link-hover);
     }
   }
 
@@ -78,7 +78,7 @@
   &_id {
     margin-bottom: 20px;
     margin-left: 16px;
-    color: $pastel;
+    color: var(--pastel);
     font-size: 18px;
   }
 }

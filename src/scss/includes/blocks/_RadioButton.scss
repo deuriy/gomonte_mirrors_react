@@ -4,7 +4,7 @@
     clip: rect(0, 0, 0, 0);
 
     &:checked~.RadioButton_label::after {
-      background-color: $radio-circle-color;
+      background-color: var(--radio-circle-color);
     }
 
     &[disabled]~.RadioButton_label {
@@ -22,16 +22,16 @@
     cursor: pointer;
     font-size: 13px;
     line-height: 1;
-    color: $filter-link;
+    color: var(--filter-link);
 
     &::before {
       content: "";
       flex-shrink: 0;
       width: 13px;
       height: 13px;
-      border: 1px solid $radio-circle-color;
+      border: 1px solid var(--radio-circle-color);
       border-radius: 50%;
-      background-color: $light;
+      background-color: var(--light);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 12px auto;
@@ -46,7 +46,7 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background-color: $light;
+      background-color: var(--light);
     }
   }
 

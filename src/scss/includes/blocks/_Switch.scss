@@ -4,7 +4,7 @@
     clip: rect(0, 0, 0, 0);
 
     &:checked~.Switch_label {
-      background: $filter-active-button-bg;
+      background: var(--filter-active-button-bg);
     }
   }
 
@@ -15,15 +15,15 @@
     padding: 10px;
     font-size: 14px;
     line-height: 1;
-    background: rgba($border-color, .5);
-    color: $filter-link;
+    background: rgba(var(--border-color), .5);
+    color: var(--filter-link);
     cursor: pointer;
     transition: all .4s;
   }
 
   &:hover {
     .Switch_label {
-      background: $filter-active-button-bg;
+      background: var(--filter-active-button-bg);
     }
   }
 }

@@ -4,18 +4,18 @@
   border-radius: 5px;
   border: none;
   outline: none;
-  background: $danger;
-  color: $light;
+  background: var(--danger);
+  color: var(--light);
   font-size: 13px;
   line-height: 1.3846;
-  font-family: $open-sans;
+  font-family: var(--open-sans);
   text-decoration: none;
   text-align: center;
   transition: all .25s;
 
   &:hover {
-    color: $light;
-    background: $danger-active;
+    color: var(--light);
+    background: var(--danger-active);
   }
 
   &-serviceBlock {
@@ -28,7 +28,7 @@
   &-applicationFormSubmit {
     font-size: 16px;
     line-height: 1.25;
-    font-family: $textbook-new-web;
+    font-family: var(--textbook-new-web);
   }
 
   &-applicationFormOpen {
@@ -41,7 +41,7 @@
 
     @media #{$mdPlus} {
       min-width: 219px;
-      background: $danger-active;
+      background: var(--danger-active);
     }
   }
 }

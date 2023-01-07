@@ -3,7 +3,7 @@
   &:after {
     font-size: 1.733em;
     font-weight: 700;
-    color: $light;
-    text-shadow: 2px 2px 5px $primary;
+    color: var(--light);
+    text-shadow: 2px 2px 5px var(--primary);
   }
 }

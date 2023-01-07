@@ -19,9 +19,7 @@ const Banner = ({ image }) => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            {
-              window.innerWidth > 1199 && <Filter params={params} departmentValue="sale" />
-            }
+            <Filter params={params} departmentValue="sale" />
           </div>
         </div>
       </div>

@@ -4,9 +4,9 @@ body {
 }
 
 body {
-  color: $primary;
-  background: $light;
-  font-family: $base-font;
+  color: var(--primary);
+  background: var(--light);
+  font-family: var(--base-font);
   font-size: 15px;
   line-height: normal;
 }

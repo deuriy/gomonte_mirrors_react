@@ -31,7 +31,7 @@
 
   &_title,
   &_description {
-    color: $grey;
+    color: var(--grey);
   }
 
   &_title {
@@ -78,7 +78,7 @@
     line-height: 1;
     pointer-events: none;
     user-select: none;
-    color: $grey3;
+    color: var(--grey3);
     font-weight: 700;
     z-index: -1;
 
