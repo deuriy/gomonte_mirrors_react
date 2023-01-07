@@ -7,7 +7,7 @@ import { RadioButton } from './RadioButton';
 import { LanguageContext } from '../../chunks/Provider';
 
 const RadioBtnsList = ({ name, data, selectedValue, setFieldFunc, disabledValues = [], ...props }) => {
-  console.log(data);
+  // console.log(data);
   const { language } = useContext(LanguageContext);
 
   function onChangeField(event) {

@@ -37,15 +37,15 @@
   &_link {
     display: block;
     padding: 15px 20px 15px 30px;
-    border-bottom: 1px solid $mobile-menu-border-color;
-    color: $light;
+    border-bottom: 1px solid var(--mobile-menu-border-color);
+    color: var(--light);
     font-size: 13px;
     line-height: 1.53846;
     text-decoration: none;
 
     &:hover {
-      color: $light;
-      background: $mobile-menu-link-hover-bg;
+      color: var(--light);
+      background: var(--mobile-menu-link-hover-bg);
     }
   }
 

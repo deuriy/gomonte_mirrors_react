@@ -27,24 +27,24 @@
   }
 
   &_phone {
-    color: $primary;
+    color: var(--primary);
     font-size: 30px;
     line-height: 1;
 
     &:hover,
     &:focus {
-      color: $primary;
+      color: var(--primary);
     }
   }
 
   &_link {
-    color: $info;
+    color: var(--info);
     font-size: 14px;
     line-height: 1;
 
     &:hover,
     &:focus {
-      color: $info;
+      color: var(--info);
     }
   }
 }

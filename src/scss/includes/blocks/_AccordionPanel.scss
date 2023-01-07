@@ -1,6 +1,6 @@
 .AccordionPanel {
   border: none;
-  border-bottom: 1px solid $accordion-panel-border;
+  border-bottom: 1px solid var(--accordion-panel-border);
   background: transparent;
 
   &_header {
@@ -17,7 +17,7 @@
       background: transparent;
       box-shadow: none;
       font-size: 18px;
-      color: $primary;
+      color: var(--primary);
 
       &::after {
         width: 16px;
@@ -27,7 +27,7 @@
 
       &:hover,
       &:focus {
-        color: $accordion-panel-hover;
+        color: var(--accordion-panel-hover);
       }
     }
   }

@@ -3,9 +3,9 @@
   height: 40px;
   padding-left: 10px;
   outline: none;
-  border-color: $secondary;
-  background: rgba($border-color, .5);
-  color: $filter-link;
+  border-color: var(--secondary);
+  background: rgba(var(--border-color), .5);
+  color: var(--filter-link);
   font-size: 14px;
   cursor: pointer;
 }

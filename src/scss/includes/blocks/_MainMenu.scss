@@ -31,11 +31,11 @@
 		height: 100%;
 		padding: 0 19px;
 		text-decoration: none;
-		color: $primary;
+		color: var(--primary);
 
 		&:hover,
 		&-active {
-			color: $info;
+			color: var(--info);
 		}
 	}
 
@@ -48,8 +48,8 @@
 		width: 220px;
 		padding: 3px 0;
 		border-radius: 5px;
-		background: $light;
-		box-shadow: 0 0 11px $object-shadow-color;
+		background: var(--light);
+		box-shadow: 0 0 11px var(--object-shadow-color);
 		opacity: 0;
 		visibility: hidden;
 		transition: all .25s ease;
@@ -65,19 +65,20 @@
 
 		&::before {
 			border: 11px solid transparent;
-			border-bottom-color: darken($light, 15);
+			// border-bottom-color: darken($light, 15);
+			border-bottom-color: var(--light);
 		}
 
 		&::after {
 			border: 10px solid transparent;
-			border-bottom-color: $light;
+			border-bottom-color: var(--light);
 		}
 
 		.MainMenu_link {
 			padding: 10px 13px;
 
 			&:hover {
-				color: $info;
+				color: var(--info);
 			}
 		}
 	}

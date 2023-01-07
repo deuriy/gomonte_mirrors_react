@@ -22,7 +22,7 @@ const PropertyCard = ({ data }) => {
   let pricePerSquare = price / footage;
   let idPrefix = data.department === 'sale' ? 's' : 'r';
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="PropertyCard">

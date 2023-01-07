@@ -1,10 +1,10 @@
 .BtnOutline {
   display: inline-grid;
   padding: 13px 20px;
-  border: 1px solid $btn-outline-border-color;
+  border: 1px solid var(--btn-outline-border-color);
   border-radius: 50px;
-  background: $light;
-  color: $filter-link;
+  background: var(--light);
+  color: var(--filter-link);
   outline: none;
   font-size: 16px;
   text-decoration: none;
@@ -13,7 +13,7 @@
 
   &:hover,
   &:focus {
-    background: $filter-link;
-    color: $light;
+    background: var(--filter-link);
+    color: var(--light);
   }
 }

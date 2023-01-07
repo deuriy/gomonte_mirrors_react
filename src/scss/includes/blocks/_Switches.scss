@@ -4,13 +4,13 @@
 
   &_item {
     .Switch_label {
-      border: 1px solid $object-id-color;
+      border: 1px solid var(--object-id-color);
       border-left: none;
     }
 
     &:first-child {
       .Switch_label {
-        border-left: 1px solid $object-id-color;
+        border-left: 1px solid var(--object-id-color);
       }
     }
   }

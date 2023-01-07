@@ -1,8 +1,8 @@
 .MobileSidebar.offcanvas {
   width: 265px;
   padding: 40px 0 0;
-  background: $mobile-sidebar-bg;
-  color: $light;
+  background: var(--mobile-sidebar-bg);
+  color: var(--light);
 
   .MobileSidebar_closeBtn {
     position: absolute;
@@ -13,6 +13,6 @@
     border: none;
     outline: none;
     background: none;
-    color: $light;
+    color: var(--light);
   }
 }

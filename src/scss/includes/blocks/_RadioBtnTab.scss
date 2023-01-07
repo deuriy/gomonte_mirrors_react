@@ -1,13 +1,13 @@
 .RadioBtnTab {
   position: relative;
-  background: $radio-btn-tab-bg;
+  background: var(--radio-btn-tab-bg);
 
   &_input {
     position: absolute;
     clip: rect(0, 0, 0, 0);
 
     &:checked~.RadioBtnTab_label {
-      background: $radio-btn-tab-active-bg;
+      background: var(--radio-btn-tab-active-bg);
     }
   }
 

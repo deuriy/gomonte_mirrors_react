@@ -2,7 +2,7 @@
   height: 100vh;
   padding-right: 15px;
   padding-left: 15px;
-  background: $info-light;
+  background: var(--info-light);
 
   .MobileFilter_header {
     display: grid;
@@ -21,7 +21,8 @@
     padding: 0;
     border: none;
     outline: none;
-    color: lighten($secondary, 30%);
+    // color: lighten($secondary, 30%);
+    color: var(--secondary);
     background: transparent;
     font-size: 42px;
   }
@@ -42,7 +43,7 @@
   .MobileFilter_formLabel {
     margin-bottom: 8px;
     font-size: 14px;
-    color: $filter-link;
+    color: var(--filter-link);
   }
 
   .MobileFilter_formText {
@@ -50,10 +51,10 @@
     width: 100%;
     padding-right: 10px;
     padding-left: 10px;
-    border: 1px solid $object-id-color;
+    border: 1px solid var(--object-id-color);
     outline: none;
     border-radius: 3px;
-    background: rgba($border-color, .5);
+    background: rgba(var(--border-color), .5);
   }
 
   .MobileFilter_actions {
@@ -66,13 +67,13 @@
   .MobileFilter_btn {
     width: 150px;
     height: 40px;
-    border: 1px solid $secondary;
-    color: $filter-link;
+    border: 1px solid var(--secondary);
+    color: var(--filter-link);
     font-size: 14px;
 
     &>svg {
       margin-right: 10px;
-      color: $primary;
+      color: var(--primary);
     }
   }
 }

@@ -1,10 +1,7 @@
 .FilterElement {
-	background: $light;
+	background: var(--light);
 
 	&_dropdown {
-		// top: 7px !important;
-		// left: 0 !important;
-
 		&-propertyType {
 			width: 250px;
 		}
@@ -15,7 +12,7 @@
 		padding: 9px 20px;
 		border: none;
 		outline: none;
-		color: $secondary;
+		color: var(--secondary);
 		font-size: 13px;
 	}
 }

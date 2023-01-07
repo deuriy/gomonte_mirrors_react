@@ -8,7 +8,7 @@
 
   &_item {
     flex: 1 0 0;
-    border-right: 1px solid $radio-btn-tab-border;
+    border-right: 1px solid var(--radio-btn-tab-border);
 
     &:last-child {
       border-right: none;
